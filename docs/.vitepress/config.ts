@@ -1,6 +1,7 @@
 import { defineConfig } from "vitepress"
 
 export default defineConfig({
-  title: 'Wonderland',
+  lang: "en-US",
+  title: 'MyBlog',
   description: 'Just playing around.',
 })
