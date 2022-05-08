@@ -3,7 +3,9 @@ import Layout from './layouts/Layout.vue'
 import './style/tailwind.postcss'
 import './style/custom.scss'
 
+import {allPosts} from './helpers/posts.ts'
 
+allPosts()
 
 export default {
     Layout,
