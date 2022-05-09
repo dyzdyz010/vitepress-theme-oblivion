@@ -12,7 +12,7 @@
     "@heroicons/vue": "^1.0.6",
     "autoprefixer": "^10.4.7",
     "fs-extra": "^10.1.0",
-    "globby": "^13.1.1",
+    "globby": "^11.1.0",
     "gray-matter": "^4.0.3",
     "postcss": "^8.4.13",
     "sass": "^1.51.0",
