@@ -1,6 +1,6 @@
 <!-- This example requires Tailwind CSS v2.0+ -->
 <template>
-  <Disclosure as="nav" class="bg-gray-800" v-slot="{ open }">
+  <Disclosure as="nav" class="border border-b-gray-100" v-slot="{ open }">
     <div class="max-w-7xl mx-auto px-2 sm:px-6 lg:px-8">
       <div class="relative flex items-center justify-between h-16">
         <div class="absolute inset-y-0 left-0 flex items-center sm:hidden">
@@ -13,12 +13,20 @@
         </div>
         <div class="flex-1 flex items-center justify-center sm:items-stretch sm:justify-start">
           <div class="flex-shrink-0 flex items-center">
-            <img class="block lg:hidden h-8 w-auto" src="https://tailwindui.com/img/logos/workflow-mark-indigo-500.svg" alt="Workflow" />
-            <img class="hidden lg:block h-8 w-auto" src="https://tailwindui.com/img/logos/workflow-logo-indigo-500-mark-white-text.svg" alt="Workflow" />
+            <img class="block lg:hidden h-8 w-auto" src="/blog_logo.svg" alt="Workflow" />
+            <img class="hidden lg:block h-8 w-auto" src="/blog_logo.svg" alt="Workflow" />
           </div>
           <div class="hidden sm:block sm:ml-6">
             <div class="flex space-x-4">
-              <a v-for="item in navigation" :key="item.name" :href="item.href" :class="[item.current ? 'bg-gray-900 text-white' : 'text-gray-300 hover:bg-gray-700 hover:text-white', 'px-3 py-2 rounded-md text-sm font-bold']" :aria-current="item.current ? 'page' : undefined">{{ item.name }}</a>
+              <a v-for="item in navigation" :key="item.text" :href="item.link" :class="[item.current ? 'text-gray-900' : 'text-gray-500 hover:text-gray-700', 'px-3 py-2 rounded-md text-base font-bold']" :aria-current="item.current ? 'page' : undefined">{{ item.text }}</a>
+              <a class="text-gray-500 hover:text-gray-700 px-3 py-2 rounded-md text-base font-bold" href="#">
+                <TagIcon class="inline h-5 w-5" />
+                <span> Tags</span>
+              </a>
+              <a class="text-gray-500 hover:text-gray-700 px-3 py-2 rounded-md text-base font-bold" href="#">
+                <DynamicIcon :iconname="'tag'" />
+                <span> Tags</span>
+              </a>
             </div>
           </div>
         </div>
@@ -56,20 +64,26 @@
 
     <DisclosurePanel class="sm:hidden">
       <div class="px-2 pt-2 pb-3 space-y-1">
-        <DisclosureButton v-for="item in navigation" :key="item.name" as="a" :href="item.href" :class="[item.current ? 'bg-gray-900 text-white' : 'text-gray-300 hover:bg-gray-700 hover:text-white', 'block px-3 py-2 rounded-md text-base font-medium']" :aria-current="item.current ? 'page' : undefined">{{ item.name }}</DisclosureButton>
+        <DisclosureButton v-for="item in navigation" :key="item.text" as="a" :href="item.link" :class="[item.current ? 'bg-gray-900 text-white' : 'text-gray-300 hover:bg-gray-700 hover:text-white', 'block px-3 py-2 rounded-md text-base font-medium']" :aria-current="item.current ? 'page' : undefined">{{ item.text }}</DisclosureButton>
       </div>
     </DisclosurePanel>
   </Disclosure>
 </template>
 
-<script setup>
+<script setup lang="ts">
+import DynamicIcon from '../components/DynamicIcon.vue'
 import { Disclosure, DisclosureButton, DisclosurePanel, Menu, MenuButton, MenuItem, MenuItems } from '@headlessui/vue'
 import { BellIcon, MenuIcon, XIcon } from '@heroicons/vue/outline'
+import { TagIcon } from '@heroicons/vue/solid'
 
-const navigation = [
-  { name: 'Dashboard', href: '#', current: true },
-  { name: 'Team', href: '#', current: false },
-  { name: 'Projects', href: '#', current: false },
-  { name: 'Calendar', href: '#', current: false },
-]
+// const navigation = [
+//   { name: 'Dashboard', href: '#', current: true },
+//   { name: 'Team', href: '#', current: false },
+//   { name: 'Projects', href: '#', current: false },
+//   { name: 'Calendar', href: '#', current: false },
+// ]
+
+import { useData } from "vitepress"
+
+const navigation = useData().theme.value.nav
 </script>

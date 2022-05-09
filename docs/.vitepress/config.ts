@@ -4,23 +4,14 @@ import { getPosts, getPostLength } from "./theme/helpers/posts.ts";
 async function config() {
   return {
     lang: "en-US",
-    title: "Clark Cui",
-    description: "Home of Clark Cui",
+    title: "Wonderland",
+    description: "Personal blog home",
     head: [
-      [
-        "link",
-        {
-          rel: "icon",
-          // type: 'image/png',
-          type: "image/jpeg",
-          href: "/avator.jpg",
-        },
-      ],
       [
         "meta",
         {
           name: "author",
-          content: "Clark Cui",
+          content: "dyzdyz010",
         },
       ],
       [
@@ -34,7 +25,7 @@ async function config() {
         "meta",
         {
           property: "og:description",
-          content: "Home of Clark Cui",
+          content: "Personal blog home",
         },
       ],
     ],
@@ -55,15 +46,15 @@ async function config() {
 
       nav: [
         {
-          text: "🏡Home",
+          text: "Home",
           link: "/",
         },
         {
-          text: "🔖Tags",
+          text: "Tags",
           link: "/tags",
         },
         {
-          text: "📃Archives",
+          text: "Archives",
           link: "/archives",
         },
       ],
