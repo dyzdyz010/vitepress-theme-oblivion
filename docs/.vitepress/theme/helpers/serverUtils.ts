@@ -40,3 +40,16 @@ export async function getPostLength() {
   // getPostMDFilePath return type is object not array
   return [...(await getPostMDFilePaths())].length;
 }
+
+export async function getCollectionList() {
+  let posts = await getPosts()
+  let collections = []
+  posts.forEach(p => {
+    collection = p.frontMatter.collection
+    if (collection != null && !collections.includes(collection)) {
+      collections.push(collection)
+    }
+  });
+
+  return collections
+}

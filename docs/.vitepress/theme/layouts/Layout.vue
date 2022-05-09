@@ -1,6 +1,6 @@
 <template>
     <Navbar />
-    <Hero />
+    <!-- <Hero /> -->
     <div class="sm:container sm:mx-auto mt-10">
         <div class="flex flex-row">
             <div class="basis-3/4 px-5">

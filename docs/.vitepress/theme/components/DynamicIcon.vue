@@ -9,6 +9,7 @@ const props = defineProps({
   iconname: String
 })
 const {...icons} = HIcons
-const ifullname = props.iconname.charAt(0).toUpperCase() + props.iconname.slice(1) + 'Icon'
+let tempname = props.iconname.replace(/-./g, x=>x[1].toUpperCase())
+const ifullname = tempname.charAt(0).toUpperCase() + tempname.slice(1) + 'Icon'
 const TheIcon = icons[ifullname]
 </script>

@@ -1,5 +1,5 @@
 import { defineConfig } from "vitepress"
-import { getPosts, getPostLength } from "./theme/helpers/posts.ts";
+import { getPosts, getPostLength, getCollectionList } from "./theme/helpers/serverUtils.ts";
 
 async function config() {
   return {
@@ -31,7 +31,7 @@ async function config() {
     ],
     themeConfig: {
       // repo: "clark-cui/homeSite",
-      logo: "/tea.svg",
+      logo: "/blog_logo.svg",
       docsDir: "/",
       // docsBranch: "master",
       lastUpdated: false,
@@ -48,14 +48,23 @@ async function config() {
         {
           text: "Home",
           link: "/",
+          icon: "home",
         },
         {
           text: "Tags",
           link: "/tags",
+          icon: "tag",
+        },
+        {
+          text: "Collections",
+          link: "/collection",
+          icon: "collection",
+          sub: await getCollectionList(),
         },
         {
           text: "Archives",
           link: "/archives",
+          icon: "archive",
         },
       ],
 
