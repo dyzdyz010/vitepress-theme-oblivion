@@ -4,6 +4,7 @@
     <div class="sm:container sm:mx-auto mt-10">
         <Home v-if="enableHome" />
         <Post v-else-if="isPost" />
+        <Content v-else />
     </div>
     <Footer />
 </template>

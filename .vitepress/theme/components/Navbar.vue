@@ -1,6 +1,6 @@
 <!-- This example requires Tailwind CSS v2.0+ -->
 <template>
-  <Disclosure as="nav" class="border border-b-gray-100" v-slot="{ open }">
+  <Disclosure as="nav" class="border border-b-gray-200" v-slot="{ open }">
     <div class="mx-auto px-2 sm:px-6 lg:px-8">
       <div class="relative flex items-center justify-between my-3">
         <div class="absolute inset-y-0 left-0 flex items-center sm:hidden">

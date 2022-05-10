@@ -1,10 +1,10 @@
 <template>
     <Hero />
-    <div class="flex flex-row">
-        <div class="basis-3/4 px-5">
+    <div class="flex flex-row mx-48">
+        <div class="basis-2/3 px-5">
             <Posts />
         </div>
-        <div class="basis-1/4 px-5">
+        <div class="basis-1/3 px-5">
             <p>{{ data }}</p>
         </div>
     </div>

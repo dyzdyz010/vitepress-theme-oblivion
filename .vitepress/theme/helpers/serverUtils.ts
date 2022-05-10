@@ -5,10 +5,13 @@ import path from "path";
 
 export async function getPosts() {
   let paths = await getPostMDFilePaths();
-  let posts = await Promise.all(
+  let postsAll = await Promise.all(
     paths.map(async (item) => {
       const content = await fs.readFile(item, "utf-8");
       const { data } = matter(content);
+      if (data.draft) {
+        return null;
+      }
       data.date = _convertDate(data.date);
       return {
         frontMatter: data,
@@ -16,6 +19,12 @@ export async function getPosts() {
       };
     })
   );
+  
+  let posts = await Promise.all(
+    postsAll.filter(item => item != null)
+  );
+  
+  console.log(posts);
   posts.sort(_compareDate);
   return posts;
 }

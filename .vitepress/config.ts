@@ -74,6 +74,9 @@ async function config() {
       // },
       sidebar: false,
     },
-  };
+    markdown: {
+      lineNumbers: false,
+    },
+  }
 }
 export default config();

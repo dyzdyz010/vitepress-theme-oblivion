@@ -1,5 +1,5 @@
 <template>
-    <footer class="text-center align-bottom text-gray-500 font-normal text-lg py-3 mt-5 border border-t-gray-100">
+    <footer class="text-center align-bottom text-gray-500 font-normal text-lg py-3 mt-5 border border-t-gray-200">
         <span>Powered by </span>
         <a href="https://github.com/dyzdyz010/vitepress-theme-oblivion" target="_blank"
             class="text-sky-600 hover:text-sky-700"> vitepress-theme-oblivion</a>
