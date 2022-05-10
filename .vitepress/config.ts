@@ -31,8 +31,8 @@ async function config() {
     ],
     themeConfig: {
       // repo: "clark-cui/homeSite",
-      logo: "/blog_logo.svg",
-      docsDir: "docs/posts",
+      logo: "/blog_logo.png",
+      docsDir: "/",
       // docsBranch: "master",
       lastUpdated: false,
       posts: await getPosts(),

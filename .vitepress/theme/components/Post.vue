@@ -1,6 +1,8 @@
 <template>
-<h1 class="text-lg font-bold">{{title}}</h1>
-<Content />
+    <h1 class="text-lg font-bold">{{ title }}</h1>
+    <div class="post">
+        <Content />
+    </div>
 </template>
 
 <script setup lang="ts">

@@ -1,11 +1,11 @@
 <template>
     <Navbar />
-    {{page}}
+
     <div class="sm:container sm:mx-auto mt-10">
         <Home v-if="enableHome" />
         <Post v-else-if="isPost" />
-        <Footer />
     </div>
+    <Footer />
 </template>
 
 <script setup lang='ts'>
@@ -26,7 +26,7 @@ const isCustomLayout = computed(() => !!frontmatter.value.customLayout)
 // home
 const enableHome = computed(() => !!frontmatter.value.home)
 const isPost = computed(() => useData().page.value.relativePath.indexOf("posts") > -1 ? true : false)
-console.log('path: ' + page.localePath);
+// console.log('path: ' + page.localePath);
 
 
 </script>

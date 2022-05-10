@@ -1,8 +1,8 @@
 import Layout from './layouts/Layout.vue'
 import Home from './components/Home.vue'
 
-import './style/tailwind.postcss'
-import './style/custom.scss'
+import './styles/tailwind.postcss'
+import './styles/custom.scss'
 
 export default {
     Layout,

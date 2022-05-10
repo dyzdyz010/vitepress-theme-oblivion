@@ -1,5 +1,5 @@
 <template>
-<component class="inline h-5 w-5" :is="TheIcon"></component>
+<component :is="TheIcon"></component>
 </template>
 
 <script setup lang="ts">

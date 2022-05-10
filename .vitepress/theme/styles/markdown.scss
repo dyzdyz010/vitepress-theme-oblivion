@@ -1,0 +1,61 @@
+@import url('./custom-block.scss');
+
+.post {
+    font-family: Ubuntu, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Cantarell, "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
+
+    @apply text-gray-600 !important;
+
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6,
+    strong,
+    b {
+      @apply font-semibold;
+    }
+
+    h1 {
+        @apply text-4xl;
+        @apply mt-6;
+    }
+
+    p,
+    ol,
+    ul {
+        @apply mx-0;
+        @apply my-4;
+
+        line-height: 1.7;
+    }
+
+    a {
+        @apply text-sky-600 !important;
+        @apply hover:text-sky-700 !important;
+
+        &.header-anchor {
+            float: left;
+            margin-left: -0.87em;
+            padding-right: 0.23em;
+            font-size: 0.85em;
+            opacity: 0;
+            @apply align-middle;
+        }
+    }
+
+    h1:hover .header-anchor,
+    h1:focus .header-anchor,
+    h2:hover .header-anchor,
+    h2:focus .header-anchor,
+    h3:hover .header-anchor,
+    h3:focus .header-anchor,
+    h4:hover .header-anchor,
+    h4:focus .header-anchor,
+    h5:hover .header-anchor,
+    h5:focus .header-anchor,
+    h6:hover .header-anchor,
+    h6:focus .header-anchor {
+        opacity: 1;
+    }
+}
