@@ -32,7 +32,7 @@ async function config() {
     themeConfig: {
       // repo: "clark-cui/homeSite",
       logo: "/blog_logo.svg",
-      docsDir: "/",
+      docsDir: "docs/posts",
       // docsBranch: "master",
       lastUpdated: false,
       posts: await getPosts(),

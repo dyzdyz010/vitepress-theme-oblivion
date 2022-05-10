@@ -1,41 +1,33 @@
 <template>
     <Navbar />
-
+    {{page}}
     <div class="sm:container sm:mx-auto mt-10">
-        <Content v-if="isCustomLayout" />
-
-        <template v-else-if="enableHome">
-            <!-- A slot for customizing the entire homepage easily -->
-            <slot name="home">
-                <Home>
-                    <template #hero>
-                        <slot name="home-hero" />
-                    </template>
-                    <template #features>
-                        <slot name="home-features" />
-                    </template>
-                    <template #footer>
-                        <slot name="home-footer" />
-                    </template>
-                </Home>
-            </slot>
-        </template>
-
-
-    <Footer />
+        <Home v-if="enableHome" />
+        <Post v-else-if="isPost" />
+        <Footer />
     </div>
 </template>
 
 <script setup lang='ts'>
 import Navbar from '../components/Navbar.vue'
-import Posts from '../components/Posts.vue'
+import Post from '../components/Post.vue'
 import Home from '../components/Home.vue'
 import Footer from '../components/Footer.vue'
-import { useData } from "vitepress"
+
+import { computed } from 'vue'
+import { useData } from 'vitepress'
 
 const title = useData().page.value.title
-const data = useData()
-console.log(data);
+// const data = useData()
+const {site, page, theme, frontmatter} = useData()
+
+// custom layout
+const isCustomLayout = computed(() => !!frontmatter.value.customLayout)
+// home
+const enableHome = computed(() => !!frontmatter.value.home)
+const isPost = computed(() => useData().page.value.relativePath.indexOf("posts") > -1 ? true : false)
+console.log('path: ' + page.localePath);
+
 
 </script>
 
