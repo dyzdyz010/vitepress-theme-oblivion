@@ -40,7 +40,6 @@ export function useActiveSidebarLinks() {
 
         // also add active class to parent h2 anchors
         const rootLi = activeLink.closest('.toc > ul > li')
-        console.log(rootLi)
 
         if (rootLi && rootLi !== activeLink.parentElement) {
             rootActiveLink = rootLi.querySelector('a')
