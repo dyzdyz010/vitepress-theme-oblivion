@@ -1,8 +1,8 @@
 ---
-title: 第二篇文章
+title: 第三篇文章
 date: 2022-12-08
 author: dyzdyz010
-collection: tcollection
+collection: collection2
 draft: false
 tags:
   - javascript

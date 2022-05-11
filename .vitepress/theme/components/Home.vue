@@ -1,21 +1,17 @@
 <template>
     <Hero />
-    <div class="flex flex-row mx-48">
-        <div class="basis-2/3 px-5">
+    <div class="flex flex-row mx-28">
+        <div class="basis-2/3 px-6">
             <Posts />
         </div>
-        <div class="basis-1/3 px-5">
-            <p>{{ data }}</p>
+        <div class="basis-1/3 px-6">
+            <Info />
         </div>
     </div>
 </template>
 
 <script setup lan="ts">
-
 import Posts from '../components/Posts.vue'
 import Hero from '../components/Hero.vue'
-
-import { useData } from "vitepress"
-
-const data = useData()
+import Info from '../components/Info.vue'
 </script>

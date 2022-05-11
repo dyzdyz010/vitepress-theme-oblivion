@@ -1,8 +1,8 @@
 <!-- This example requires Tailwind CSS v2.0+ -->
 <template>
-  <Disclosure as="nav" class="border border-b-gray-200" v-slot="{ open }">
+  <Disclosure as="nav" class="border border-x-0 border-t-0 border-b-gray-200" v-slot="{ open }">
     <div class="mx-auto px-2 sm:px-6 lg:px-8">
-      <div class="relative flex items-center justify-between my-3">
+      <div class="relative flex items-center justify-between h-16">
         <div class="absolute inset-y-0 left-0 flex items-center sm:hidden">
           <!-- Mobile menu button-->
           <DisclosureButton
@@ -16,24 +16,24 @@
           <div class="flex-shrink-0 flex mr-10 items-center">
             <img v-if="theme.logo" class="hidden lg:inline h-8 w-auto" :src="withBase(theme.logo)" alt="Logo" />
             <a :href="localePath"
-              class="text-xl font-bold text-sky-500 hover:text-sky-700 rounded-md hidden lg:inline ml-2">{{ site.title
+              class="text-xl font-bold text-sky-600 hover:text-sky-700 rounded-md hidden lg:inline ml-2">{{ site.title
               }}</a>
             <!-- <img class="block lg:hidden h-8 w-auto" src="/blog_logo.svg" alt="Workflow" />
             <img class="hidden lg:block h-8 w-auto" src="/blog_logo.svg" alt="Workflow" /> -->
           </div>
           <div class="hidden sm:block ml-auto">
             <div class="flex-1 flex space-x-1 justify-end">
-              <div v-for="item in navigation" :key="item.text" class="px-3 py-2 inline-flex items-center">
+              <div v-for="item in navigation" :key="item.text" class="px-3 py-2 inline-flex">
                 <a v-if="!item.sub" :href="[item.sub ? '#' : item.link]"
                   :class="[item.current ? 'text-gray-900' : 'text-gray-500 hover:text-gray-700', 'text-base font-bold']"
                   :aria-current="item.current ? 'page' : undefined">
-                  <DynamicIcon :iconname="item.icon" :class="'inline-block w-5 h-5'" />
-                  {{ item.text }}
+                  <DynamicIcon :iconname="item.icon" :class="'inline-block w-5 h-5 mr-1'" />
+                  <span>{{ item.text }}</span>
                 </a>
                 <Menu v-else as="div" class="ml-3 relative">
                   <div>
                     <MenuButton
-                      :class="[item.current ? 'text-gray-900' : 'text-gray-500 hover:text-gray-700', 'text-base font-bold']">
+                      :class="[item.current ? 'text-gray-900' : 'text-gray-500 hover:text-gray-700', 'focus:outline-none text-base font-bold']">
                       <DynamicIcon :iconname="item.icon" :class="'inline-block w-5 h-5'" />
                       {{ item.text }}
                       <DynamicIcon :iconname="'chevron-down'" :class="'inline-block w-5 h-5'" />
@@ -45,9 +45,9 @@
                     leave-from-class="transform opacity-100 scale-100" leave-to-class="transform opacity-0 scale-95">
                     <MenuItems
                       class="origin-top-left absolute left-0 mt-2 w-48 rounded-md shadow-lg py-1 bg-white ring-1 ring-black ring-opacity-5 focus:outline-none">
-                      <MenuItem v-for="s in item.sub" :key="s">
+                      <MenuItem v-slot="{ active }" v-for="s in item.sub" :key="s">
                       <a href="#"
-                        :class="[active ? 'bg-gray-100' : '', 'block px-4 py-2 text-sm font-bold text-gray-700']">{{ s
+                        :class="[active ? 'bg-gray-100 text-gray-700' : '', 'block px-4 py-2 text-sm font-bold text-gray-500']">{{ s
                         }}</a>
                       </MenuItem>
                     </MenuItems>

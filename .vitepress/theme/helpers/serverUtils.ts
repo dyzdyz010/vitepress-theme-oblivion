@@ -24,7 +24,6 @@ export async function getPosts() {
     postsAll.filter(item => item != null)
   );
   
-  console.log(posts);
   posts.sort(_compareDate);
   return posts;
 }
@@ -50,15 +49,29 @@ export async function getPostLength() {
   return [...(await getPostMDFilePaths())].length;
 }
 
-export async function getCollectionList() {
+export async function getCollections(): Array<Collection> {
   let posts = await getPosts()
-  let collections = []
-  posts.forEach(p => {
-    collection = p.frontMatter.collection
-    if (collection != null && !collections.includes(collection)) {
-      collections.push(collection)
+  let collections: Array<Collection> = []
+
+  for (const p of posts) {
+    cnames = collections.map(item => item.name)
+    index = cnames.indexOf(p.frontMatter.collection)
+    if (index > -1) {
+      let c = collections.at(index)
+      c.count += 1
+    } else {
+      let c: Collection = {
+        name: p.frontMatter.collection,
+        count: 1
+      }
+      collections.push(c)
     }
-  });
+  }
 
   return collections
+}
+
+interface Collection {
+  name: String,
+  count: Number,
 }

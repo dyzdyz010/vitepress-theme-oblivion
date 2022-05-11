@@ -1,5 +1,5 @@
 <template>
-    <a v-if="islink" :href="titlelink" class="block text-3xl font-medium mb-5 text-sky-600 hover:text-sky-800">{{ title }}</a>
+    <a v-if="islink" :href="titlelink" class="block text-3xl font-medium mb-5 text-gray-600 hover:text-sky-800">{{ title }}</a>
     <h1 v-else class="block text-4xl font-bold mb-5 text-gray-700">{{ title }}</h1>
     <div class="font-medium text-gray-500">
         <span>

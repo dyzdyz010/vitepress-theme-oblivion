@@ -1,5 +1,5 @@
 import { defineConfig } from "vitepress"
-import { getPosts, getPostLength, getCollectionList } from "./theme/helpers/serverUtils.ts";
+import { getPosts, getPostLength, getCollections } from "./theme/helpers/serverUtils.ts";
 
 async function config() {
   return {
@@ -35,9 +35,10 @@ async function config() {
       docsDir: "/",
       // docsBranch: "master",
       lastUpdated: false,
-      posts: await getPosts(),
+      posts: await getPosts(), // 文章总数
       pageSize: 5, //几个为一页
       postLength: await getPostLength(), //博客有几篇
+      collections: await getCollections(),
 
       //       algolia: {
       //         apiKey: "90a0bae6ff7307fb76896cbe2f975b0c",
@@ -59,12 +60,12 @@ async function config() {
           text: "Collections",
           link: "/collection",
           icon: "collection",
-          sub: await getCollectionList(),
+          sub: (await getCollections()).map(item => item.name),
         },
         {
-          text: "Archives",
-          link: "/archives",
-          icon: "archive",
+          text: "About",
+          link: "/about",
+          icon: "question-mark-circle",
         },
       ],
 
