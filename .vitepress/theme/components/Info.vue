@@ -1,9 +1,11 @@
 <template>
-    {{ data }}
+    <CalendarHeatmap />
 </template>
 
 <script setup lang="ts">
+import CalendarHeatmap from './calendar-heatmap/CalendarHeatmap.vue'
+
 import { useData } from 'vitepress'
 
-// const data = useData()
+const data = useData()
 </script>

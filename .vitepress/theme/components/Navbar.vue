@@ -25,7 +25,7 @@
             <div class="flex-1 flex space-x-1 justify-end">
               <div v-for="item in navigation" :key="item.text" class="px-3 py-2 inline-flex">
                 <a v-if="!item.sub" :href="[item.sub ? '#' : item.link]"
-                  :class="[item.current ? 'text-gray-900' : 'text-gray-500 hover:text-gray-700', 'text-base font-bold']"
+                  :class="[isActive(route, withBase(item.link)) ? 'text-gray-900' : 'text-gray-500 hover:text-gray-700', 'text-base font-bold']"
                   :aria-current="item.current ? 'page' : undefined">
                   <DynamicIcon :iconname="item.icon" :class="'inline-block w-5 h-5 mr-1'" />
                   <span>{{ item.text }}</span>
@@ -47,7 +47,8 @@
                       class="origin-top-left absolute left-0 mt-2 w-48 rounded-md shadow-lg py-1 bg-white ring-1 ring-black ring-opacity-5 focus:outline-none">
                       <MenuItem v-slot="{ active }" v-for="s in item.sub" :key="s">
                       <a href="#"
-                        :class="[active ? 'bg-gray-100 text-gray-700' : '', 'block px-4 py-2 text-sm font-bold text-gray-500']">{{ s
+                        :class="[active ? 'bg-gray-100 text-gray-700' : '', 'block px-4 py-2 text-sm font-bold text-gray-500']">{{
+                            s
                         }}</a>
                       </MenuItem>
                     </MenuItems>
@@ -82,11 +83,18 @@ import { TagIcon } from '@heroicons/vue/solid'
 //   { name: 'Projects', href: '#', current: false },
 //   { name: 'Calendar', href: '#', current: false },
 // ]
+import { computed } from 'vue'
+import { useRoute, useData, withBase } from "vitepress"
+import { isActive } from '../helpers/utils.ts'
 
-import { withBase, useData } from 'vitepress'
+
+const route = useRoute()
+
 const { site, theme, localePath } = useData()
 
 const navigation = theme.value.nav
+
+const active = computed((link) => isActive(route, withBase(link)))
 
 // console.log(navigation)
 </script>
