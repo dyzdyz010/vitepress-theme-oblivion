@@ -1,8 +1,14 @@
 <template>
-<div class="xl:mx-64 lg:mx-32 mx-2">
-    <TagList class="mt-10 mb-20" @currentTagChanged="currentTagChanged" :current-tag="currentTag" />
-    <Posts :posts="postsByTag" :current-page="currentPage" @currentPageChanged="currentPageChanged" />
-</div>
+    <div class="xl:mx-64 lg:mx-32 mx-2">
+        <transition appear enter-active-class="transition ease-out duration-300"
+            enter-from-class="transform opacity-0 scale-95" enter-to-class="opacity-100 scale-100">
+            <TagList class="mt-10 mb-20" @currentTagChanged="currentTagChanged" :current-tag="currentTag" />
+        </transition>
+        <transition appear enter-active-class="transition ease-out duration-300 delay-100"
+            enter-from-class="transform opacity-0 scale-95" enter-to-class="opacity-100 scale-100">
+            <Posts :posts="postsByTag" :current-page="currentPage" @currentPageChanged="currentPageChanged" />
+        </transition>
+    </div>
 </template>
 
 <script setup lang="ts">
