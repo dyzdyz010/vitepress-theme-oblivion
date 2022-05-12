@@ -17,8 +17,7 @@ export function setStoragePage(page) {
     sessionStorage.setItem('currentPage', JSON.stringify({ page, path }))
 }
 
-export function getPostsOnPage(page) {
-    const posts = useData().theme.value.posts
+export function getPostsOnPage(posts, page) {
     const pageSize = useData().theme.value.pageSize
 
     const before = (page - 1) * pageSize

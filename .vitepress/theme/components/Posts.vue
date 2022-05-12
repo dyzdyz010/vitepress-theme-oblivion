@@ -1,11 +1,11 @@
 <template>
     <div class="posts">
-        <div v-for="(item, index) in posts"
+        <div v-for="(item, index) in pagePosts"
             :class="[index == 0 ? '' : 'mt-8', 'border border-x-0 border-t-0 border-b-gray-200 pb-7']">
             <PostTitle :title="item.frontMatter.title" :date="item.frontMatter.date" :author="item.frontMatter.author"
                 :tags="item.frontMatter.tags" :islink="true" :titlelink="withBase(item.regularPath)" />
         </div>
-        <Pagination :current-page="currentPage" @currentPageChanged="currentPageChanged" />
+        <Pagination :current-page="currentPage" @currentPageChanged="currentPageChanged" :posts="posts" />
     </div>
 </template>
 
@@ -18,16 +18,22 @@ import { getStoragePage, setStoragePage, getPostsOnPage } from "../helpers/pagin
 import { ref, computed } from "vue"
 import { useData, withBase } from "vitepress"
 
-const currentPage = ref(getStoragePage() || 1)
-const posts = computed(() => getPostsOnPage(currentPage.value))
-console.log(posts)
+const props = defineProps({
+    posts: Array,
+    currentPage: Number
+})
+
+const emit = defineEmits(['currentPageChanged'])
+
+const pagePosts = computed(() => getPostsOnPage(props.posts, props.currentPage))
 
 const currentPageChanged = (newPageNum) => {
-    currentPage.value = newPageNum
+    // props.currentPage = newPageNum
     setStoragePage(newPageNum)
     setTimeout(() => {
         window.scrollTo(0, 0)
     }, 100)
+    emit('currentPageChanged', newPageNum)
 }
 
 </script>

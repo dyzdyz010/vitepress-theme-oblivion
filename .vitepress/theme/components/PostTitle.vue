@@ -17,7 +17,7 @@
             <span class="hidden lg:inline-block md:mx-5">|</span>
             <span class="break-words">
                 <DynamicIcon :iconname="'tag'" :class="'inline-block w-4 h-4 mr-2 mb-[0.1rem]'" />
-                <span v-for="t in tags" class="mr-2">{{ t }}</span>
+                <span v-for="t in tags" class="mr-2 hover:text-sky-700 cursor-pointer" @click="selectTag(t)">{{ t }}</span>
             </span>
         </div>
     </div>
@@ -25,6 +25,10 @@
 
 <script setup lang="ts">
 import DynamicIcon from "./DynamicIcon.vue"
+import {useRouter} from 'vitepress'
+import { setStorageTag } from "../helpers/tags.ts"
+
+const router = useRouter()
 
 const props = defineProps({
     title: String,
@@ -44,4 +48,9 @@ const dateOptions = {
 const dateTemp = new Date(props.date)
 
 const date = dateTemp.toLocaleDateString('en-US', dateOptions)
+
+const selectTag = function (tag) {
+    setStorageTag(tag)
+    router.go('/tags')
+}
 </script>

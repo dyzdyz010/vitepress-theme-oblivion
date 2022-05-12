@@ -7,7 +7,6 @@ draft: false
 tags:
   - javascript
   - markdown
-  - showcase
 ---
 
 # Markdown Extensions

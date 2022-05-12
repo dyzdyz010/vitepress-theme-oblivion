@@ -71,7 +71,36 @@ export async function getCollections(): Array<Collection> {
   return collections
 }
 
+export async function getTags(): Array<Tag> {
+  let posts = await getPosts()
+  let tags: Array<Tag> = []
+
+  posts.map((p) => {
+    tnames = tags.map(item => item.name)
+    ptags = p.frontMatter.tags
+    ptags.map((pt) => {
+      index = tnames.indexOf(pt)
+      if (index > -1) {
+        tags.at(index).count += 1
+      } else {
+        let t: Tag = {
+          name: pt,
+          count: 1
+        }
+        tags.push(t)
+      }
+    })
+  })
+
+  return tags
+}
+
 interface Collection {
   name: String,
   count: Number,
+}
+
+interface Tag {
+  naem: String,
+  count: Number
 }

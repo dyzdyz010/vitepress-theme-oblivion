@@ -6,8 +6,6 @@ collection: collection2
 draft: false
 tags:
   - javascript
-  - markdown
-  - showcase
 ---
 
 # Markdown Extensions

@@ -6,7 +6,7 @@ collection: tcollection
 tags:
   - javascript
   - markdown
-  - showcase
+  - news
 ---
 
 # Markdown Extensions

@@ -6,7 +6,7 @@
         <span v-if="isAll" v-for="i in pageNum" :class="[i == currentPage ? 'text-sky-700' : '', 'mx-2 text-lg text-gray-600 hover:text-sky-700 cursor-pointer']" @click="jumpToPage(i)">{{i}}</span>
     </div>
 
-    <DynamicIcon :iconname="'chevron-double-right'" @click="nextPage" class="w-4 h-4 text-gray-600 hover:text-sky-800 cursor-pointer" />
+    <DynamicIcon v-if="currentPage < pageNum" :iconname="'chevron-double-right'" @click="nextPage" class="w-4 h-4 text-gray-600 hover:text-sky-800 cursor-pointer" />
 </div>
 </template>
 
@@ -17,6 +17,7 @@ import { useData } from "vitepress"
 
 const props = defineProps({
     currentPage: Number,
+    posts: Array,
 })
 
 const emit = defineEmits(['currentPageChanged'])
@@ -35,8 +36,8 @@ const jumpToPage = function (page) {
     emit('currentPageChanged', page)
 }
 
-const posts = useData().theme.value.posts
 const pageSize = useData().theme.value.pageSize
-const pageNum = Math.ceil(posts.length / pageSize)
-const isAll = computed(() => pageNum < 6)
+
+const pageNum = computed(() => Math.ceil(props.posts.length / pageSize))
+const isAll = computed(() => pageNum.value < 6)
 </script>

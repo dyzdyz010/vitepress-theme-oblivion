@@ -6,7 +6,7 @@ collection: collection2
 draft: false
 tags:
   - javascript
-  - markdown
+  - news
   - showcase
 ---
 

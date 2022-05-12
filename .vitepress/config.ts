@@ -1,5 +1,5 @@
 import { defineConfig } from "vitepress"
-import { getPosts, getPostLength, getCollections } from "./theme/helpers/serverUtils.ts";
+import { getPosts, getPostLength, getCollections, getTags } from "./theme/helpers/serverUtils.ts";
 
 async function config() {
   return {
@@ -39,6 +39,7 @@ async function config() {
       pageSize: 3, //几个为一页
       postLength: await getPostLength(), //博客有几篇
       collections: await getCollections(),
+      tags: await getTags(),
 
       //       algolia: {
       //         apiKey: "90a0bae6ff7307fb76896cbe2f975b0c",
