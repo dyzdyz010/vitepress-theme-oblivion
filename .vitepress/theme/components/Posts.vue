@@ -5,7 +5,7 @@
             <PostTitle :title="item.frontMatter.title" :date="item.frontMatter.date" :author="item.frontMatter.author"
                 :tags="item.frontMatter.tags" :islink="true" :titlelink="withBase(item.regularPath)" />
         </div>
-        <Pagination :current-page="currentPage" />
+        <Pagination :current-page="currentPage" @currentPageChanged="currentPageChanged" />
     </div>
 </template>
 
@@ -13,10 +13,21 @@
 import PostTitle from "./PostTitle.vue"
 import Pagination from "./Pagination.vue"
 
-import { ref } from "vue"
+import { getStoragePage, setStoragePage, getPostsOnPage } from "../helpers/pagination.ts"
+
+import { ref, computed } from "vue"
 import { useData, withBase } from "vitepress"
 
-const posts = useData().theme.value.posts
-const currentPage = ref(1)
+const currentPage = ref(getStoragePage() || 1)
+const posts = computed(() => getPostsOnPage(currentPage.value))
+console.log(posts)
+
+const currentPageChanged = (newPageNum) => {
+    currentPage.value = newPageNum
+    setStoragePage(newPageNum)
+    setTimeout(() => {
+        window.scrollTo(0, 0)
+    }, 100)
+}
 
 </script>

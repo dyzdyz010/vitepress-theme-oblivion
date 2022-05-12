@@ -1,5 +1,5 @@
 <template>
-    <div class="hidden md:block toc fixed left-30 top-40 bottom-40">
+    <div class="hidden lg:block toc fixed left-8 lg:ml-12 top-40 bottom-40">
         <ul class="toc-links flex flex-col">
             <li v-for="item in toc" class="toc-link">
                 <a :href="item.link"

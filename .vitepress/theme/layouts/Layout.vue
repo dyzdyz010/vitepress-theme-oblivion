@@ -1,7 +1,7 @@
 <template>
     <div class="flex flex-col h-screen">
         <Navbar />
-        <div class="flex flex-col sm:container sm:mx-auto mt-10 mb-20">
+        <div class="flex flex-col lg:container lg:mx-auto mt-10 mb-20">
             <Home v-if="enableHome" />
             <Post v-else-if="isPost" />
             <Content v-else />

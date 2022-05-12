@@ -1,7 +1,7 @@
 <template>
     <transition appear enter-active-class="transition ease-in-out duration-300"
         enter-from-class="transform opacity-0 -translate-y-3" enter-to-class="opacity-100">
-        <div class="md:ml-80 md:mr-10 md:mt-20">
+        <div class="md:ml-[68] lg:ml-80 lg:mr-10 md:mt-20 mx-2">
             <PostTitle :title="title" :date="date" :author="author" :tags="tags" :islink="false" :titlelink="''" />
             <div class="post mt-16">
                 <Content />

@@ -1,5 +1,5 @@
 ---
-title: 第8篇文章
+title: 第八篇文章
 date: 2022-12-08
 author: dyzdyz010
 collection: collection2

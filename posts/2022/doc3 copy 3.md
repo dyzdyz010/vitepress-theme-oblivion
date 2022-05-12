@@ -1,6 +1,6 @@
 ---
 title: 第六篇文章
-date: 2022-12-08
+date: 2022-11-08
 author: dyzdyz010
 collection: collection2
 draft: false

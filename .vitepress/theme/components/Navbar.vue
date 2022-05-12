@@ -3,20 +3,25 @@
   <Disclosure as="nav" class="navbar border border-x-0 border-t-0 border-b-gray-200" v-slot="{ open }">
     <div class="mx-auto px-2 sm:px-6 lg:px-8">
       <div class="relative flex items-center justify-between h-16">
-        <div class="absolute inset-y-0 left-0 flex items-center sm:hidden">
+        <div class="absolute inset-y-0 right-0 flex items-center sm:hidden">
           <!-- Mobile menu button-->
           <DisclosureButton
-            class="inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-white hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white">
+            class="inline-flex items-center justify-center p-2 text-gray-700 hover:text-sky-700 focus:outline-none">
             <span class="sr-only">Open main menu</span>
             <MenuIcon v-if="!open" class="block h-6 w-6" aria-hidden="true" />
             <XIcon v-else class="block h-6 w-6" aria-hidden="true" />
           </DisclosureButton>
         </div>
-        <div class="flex-1 flex sm:items-stretch sm:justify-start">
+        <div class="flex-1 flex sm:items-stretch justify-center sm:justify-start">
           <div class="flex-shrink-0 flex mr-10 items-center">
-            <img v-if="theme.logo" class="hidden lg:inline h-8 w-auto" :src="withBase(theme.logo)" alt="Logo" />
             <a :href="localePath"
-              class="text-xl font-bold text-sky-600 hover:text-sky-700 rounded-md hidden lg:inline ml-2">{{ site.title
+              class="">
+              <img v-if="theme.logo" class="justify-center lg:inline h-8 w-auto" :src="withBase(theme.logo)"
+                alt="Logo" />
+            </a>
+
+            <a :href="localePath"
+              class="text-xl font-bold text-sky-600 hover:text-sky-700 rounded-md hidden md:inline ml-2">{{ site.title
               }}</a>
             <!-- <img class="block lg:hidden h-8 w-auto" src="/blog_logo.svg" alt="Workflow" />
             <img class="hidden lg:block h-8 w-auto" src="/blog_logo.svg" alt="Workflow" /> -->
@@ -64,7 +69,7 @@
     <DisclosurePanel class="sm:hidden">
       <div class="px-2 pt-2 pb-3 space-y-1">
         <DisclosureButton v-for="item in navigation" :key="item.text" as="a" :href="item.link"
-          :class="[item.current ? 'bg-gray-900 text-white' : 'text-gray-300 hover:bg-gray-700 hover:text-white', 'block px-3 py-2 rounded-md text-base font-medium']"
+          :class="[isActive(route, withBase(item.link)) ? 'bg-gray-100 text-gray-900' : 'text-gray-500 hover:text-gray-700 hover:bg-gray-100', 'block px-3 py-2 rounded-md text-base font-medium']"
           :aria-current="item.current ? 'page' : undefined">{{ item.text }}</DisclosureButton>
       </div>
     </DisclosurePanel>

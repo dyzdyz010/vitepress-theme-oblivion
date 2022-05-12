@@ -1,6 +1,10 @@
 @import url(./fonts.scss);
 @import url(./markdown.scss);
 
+html {
+    @apply scroll-smooth;
+}
+
 body {
     font-family: 'Neutraface Text';
     // background-color: #111;

@@ -1,31 +1,42 @@
 <template>
-<div class="pagination flex justify-center h-5 mt-7">
-    <DynamicIcon :iconname="'chevron-double-left'" @click="prevPage" class="text-gray-600 hover:text-sky-800 cursor-pointer" />
-    <DynamicIcon :iconname="'chevron-double-right'" @click="nextPage" class="text-gray-600 hover:text-sky-800 cursor-pointer" />
+<div class="pagination flex justify-center items-center mt-7">
+    <DynamicIcon v-if="currentPage > 1" :iconname="'chevron-double-left'" @click="prevPage" class="w-4 h-4 text-gray-600 hover:text-sky-700 cursor-pointer" />
+
+    <div class="jump-links mx-4">
+        <span v-if="isAll" v-for="i in pageNum" :class="[i == currentPage ? 'text-sky-700' : '', 'mx-2 text-lg text-gray-600 hover:text-sky-700 cursor-pointer']" @click="jumpToPage(i)">{{i}}</span>
+    </div>
+
+    <DynamicIcon :iconname="'chevron-double-right'" @click="nextPage" class="w-4 h-4 text-gray-600 hover:text-sky-800 cursor-pointer" />
 </div>
 </template>
 
 <script setup lang="ts">
 import DynamicIcon from "./DynamicIcon.vue"
+import { computed } from "vue"
 import { useData } from "vitepress"
 
 const props = defineProps({
     currentPage: Number,
 })
 
+const emit = defineEmits(['currentPageChanged'])
+
 const prevPage = function () {
-    props.currentPage = props.currentPage == 1 ? 1 : props.currentPage - 1
-    
-    console.log('prevPage clicked: ' + props.currentPage)
+    const newCurrentPage = props.currentPage == 1 ? 1 : props.currentPage - 1
+    emit('currentPageChanged', newCurrentPage)
 }
 
 const nextPage = function () {
-    props.currentPage = props.currentPage == pageNum ? pageNum : props.currentPage + 1
+    const newCurrentPage = props.currentPage == pageNum ? pageNum : props.currentPage + 1
+    emit('currentPageChanged', newCurrentPage)
+}
 
-    console.log('nextPage clicked: ' + props.currentPage)
+const jumpToPage = function (page) {
+    emit('currentPageChanged', page)
 }
 
 const posts = useData().theme.value.posts
 const pageSize = useData().theme.value.pageSize
 const pageNum = Math.ceil(posts.length / pageSize)
+const isAll = computed(() => pageNum < 6)
 </script>
