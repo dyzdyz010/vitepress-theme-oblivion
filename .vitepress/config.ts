@@ -36,7 +36,7 @@ async function config() {
       // docsBranch: "master",
       lastUpdated: false,
       posts: await getPosts(), // 文章总数
-      pageSize: 5, //几个为一页
+      pageSize: 3, //几个为一页
       postLength: await getPostLength(), //博客有几篇
       collections: await getCollections(),
 
