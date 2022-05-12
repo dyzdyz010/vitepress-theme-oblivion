@@ -12,8 +12,11 @@
 <script setup lang="ts">
 import PostTitle from "./PostTitle.vue"
 import Pagination from "./Pagination.vue"
+
+import { ref } from "vue"
 import { useData, withBase } from "vitepress"
 
 const posts = useData().theme.value.posts
+const currentPage = ref(1)
 
 </script>
