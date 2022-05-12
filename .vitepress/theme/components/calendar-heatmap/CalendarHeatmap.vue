@@ -16,6 +16,6 @@ const months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', '
 const days = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat']
 let today = new Date()
 let year = today.getFullYear()
-console.log(year);
+// console.log(year);
 const daysInYear = daysOfYear(2022)
 </script>

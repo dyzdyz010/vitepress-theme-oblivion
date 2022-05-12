@@ -1,14 +1,18 @@
 <template>
     <transition appear enter-active-class="transition ease-in-out duration-300"
         enter-from-class="transform opacity-0 -translate-y-3" enter-to-class="opacity-100">
-        <div class="ml-72 mr-10 mt-20">
+        <div class="md:ml-80 md:mr-10 md:mt-20">
             <PostTitle :title="title" :date="date" :author="author" :tags="tags" :islink="false" :titlelink="''" />
             <div class="post mt-16">
                 <Content />
             </div>
         </div>
     </transition>
-    <TOC />
+
+    <transition appear enter-active-class="transition ease-out duration-300 delay-100"
+        enter-from-class="transform opacity-0 scale-95" enter-to-class="opacity-100 scale-100">
+        <TOC />
+    </transition>
 </template>
 
 <script setup lang="ts">
