@@ -27,6 +27,26 @@ async function config() {
           property: "og:description",
           content: "Personal blog home",
         },
+
+      ],
+      [
+        'link',
+        {
+          rel: 'stylesheet', href: 'https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.css',
+        }
+      ],
+      [
+        'script',
+        {
+          src: 'https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js',
+        }
+      ],
+      [
+        'script',
+        {
+          src: 'https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/contrib/auto-render.min.js',
+          onload: 'renderMathInElement(document.body);',
+        }
       ],
     ],
     themeConfig: {
@@ -78,6 +98,9 @@ async function config() {
     },
     markdown: {
       lineNumbers: false,
+      // config: (md) => {
+      //   md.use(require("markdown-it-katex"));
+      // },
     },
   }
 }

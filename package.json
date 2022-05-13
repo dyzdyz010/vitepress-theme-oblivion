@@ -27,5 +27,8 @@
     "dev": "vitepress dev",
     "build": "vitepress build",
     "serve": "vitepress serve"
+  },
+  "dependencies": {
+    "markdown-it-katex": "^2.0.3"
   }
 }
