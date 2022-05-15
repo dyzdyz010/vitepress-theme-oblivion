@@ -35,19 +35,6 @@ async function config() {
           rel: 'stylesheet', href: 'https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.css',
         }
       ],
-      [
-        'script',
-        {
-          src: 'https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js',
-        }
-      ],
-      [
-        'script',
-        {
-          src: 'https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/contrib/auto-render.min.js',
-          onload: 'renderMathInElement(document.body);',
-        }
-      ],
     ],
     themeConfig: {
       // repo: "clark-cui/homeSite",
@@ -98,9 +85,9 @@ async function config() {
     },
     markdown: {
       lineNumbers: false,
-      // config: (md) => {
-      //   md.use(require("markdown-it-katex"));
-      // },
+      config: (md) => {
+        md.use(require('@iktakahiro/markdown-it-katex'));
+      },
     },
   }
 }

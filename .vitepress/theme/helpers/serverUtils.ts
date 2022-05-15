@@ -19,11 +19,11 @@ export async function getPosts() {
       };
     })
   );
-  
+
   let posts = await Promise.all(
     postsAll.filter(item => item != null)
   );
-  
+
   posts.sort(_compareDate);
   return posts;
 }
@@ -76,20 +76,22 @@ export async function getTags(): Array<Tag> {
   let tags: Array<Tag> = []
 
   posts.map((p) => {
-    tnames = tags.map(item => item.name)
-    ptags = p.frontMatter.tags
-    ptags.map((pt) => {
-      index = tnames.indexOf(pt)
-      if (index > -1) {
-        tags.at(index).count += 1
-      } else {
-        let t: Tag = {
-          name: pt,
-          count: 1
+    if (p.frontMatter.tags != null) {
+      tnames = tags.map(item => item.name)
+      ptags = p.frontMatter.tags
+      ptags.map((pt) => {
+        index = tnames.indexOf(pt)
+        if (index > -1) {
+          tags.at(index).count += 1
+        } else {
+          let t: Tag = {
+            name: pt,
+            count: 1
+          }
+          tags.push(t)
         }
-        tags.push(t)
-      }
-    })
+      })
+    }
   })
 
   return tags

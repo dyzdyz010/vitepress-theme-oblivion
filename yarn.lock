@@ -163,6 +163,13 @@
   resolved "https://registry.yarnpkg.com/@heroicons/vue/-/vue-1.0.6.tgz#d8b90734b436eb5a87f40cc300b64a0fb0031f7f"
   integrity sha512-ng2YcCQrdoQWEFpw+ipFl2rZo8mZ56v0T5+MyfQQvNqfKChwgP6DMloZLW+rl17GEcHkE3H82UTAMKBKZr4+WA==
 
+"@iktakahiro/markdown-it-katex@^4.0.1":
+  version "4.0.1"
+  resolved "https://registry.yarnpkg.com/@iktakahiro/markdown-it-katex/-/markdown-it-katex-4.0.1.tgz#65ff9d12afd4c0b7684dd247abe7ce42fc1edac3"
+  integrity sha512-kGFooO7fIOgY34PSG8ZNVsUlKhhNoqhzW2kq94TNGa8COzh73PO4KsEoPOsQVG1mEAe8tg7GqG0FoVao0aMHaw==
+  dependencies:
+    katex "^0.12.0"
+
 "@nodelib/fs.scandir@2.1.5":
   version "2.1.5"
   resolved "https://registry.yarnpkg.com/@nodelib/fs.scandir/-/fs.scandir-2.1.5.tgz#7619c2eb21b25483f6d167548b4cfd5a7488c3d5"
@@ -384,9 +391,9 @@ camelcase-css@^2.0.1:
   integrity sha512-QOSvevhslijgYwRx6Rv7zKdMF8lbRmx+uQGx2+vDc+KI/eBnsy9kit5aj23AgGu3pa4t9AgwbnXWqS+iOY+2aA==
 
 caniuse-lite@^1.0.30001332, caniuse-lite@^1.0.30001335:
-  version "1.0.30001340"
-  resolved "https://registry.yarnpkg.com/caniuse-lite/-/caniuse-lite-1.0.30001340.tgz#029a2f8bfc025d4820fafbfaa6259fd7778340c7"
-  integrity sha512-jUNz+a9blQTQVu4uFcn17uAD8IDizPzQkIKh3LCJfg9BkyIqExYYdyc/ZSlWUSKb8iYiXxKsxbv4zYSvkqjrxw==
+  version "1.0.30001341"
+  resolved "https://registry.yarnpkg.com/caniuse-lite/-/caniuse-lite-1.0.30001341.tgz#59590c8ffa8b5939cf4161f00827b8873ad72498"
+  integrity sha512-2SodVrFFtvGENGCv0ChVJIDQ0KPaS1cg7/qtfMaICgeMolDdo/Z2OD32F0Aq9yl6F4YFwGPBS5AaPqNYiW4PoA==
 
 "chokidar@>=3.0.0 <4.0.0", chokidar@^3.5.3:
   version "3.5.3"
@@ -407,6 +414,11 @@ color-name@^1.1.4:
   version "1.1.4"
   resolved "https://registry.yarnpkg.com/color-name/-/color-name-1.1.4.tgz#c2a09a87acbde69543de6f63fa3995c826c536a2"
   integrity sha512-dOy+3AuW3a2wNbZHIuMZpTcgjGuLU/uBL/ubcZF9OXbDo8ff4O8yVp5Bf0efS8uEoYo5q4Fx7dY9OgQGXgAsQA==
+
+commander@^2.19.0:
+  version "2.20.3"
+  resolved "https://registry.yarnpkg.com/commander/-/commander-2.20.3.tgz#fd485e84c03eb4881c20722ba48035e8531aeb33"
+  integrity sha512-GpVkmM8vF2vQUkj2LvZmD35JxeJOLCwJ9cUkugyk2nuhbv3+mJvpLYYt+0+USMxE+oj+ey/lJEnhZw75x/OMcQ==
 
 cssesc@^3.0.0:
   version "3.0.0"
@@ -762,12 +774,12 @@ jsonfile@^6.0.1:
   optionalDependencies:
     graceful-fs "^4.1.6"
 
-katex@^0.6.0:
-  version "0.6.0"
-  resolved "https://registry.yarnpkg.com/katex/-/katex-0.6.0.tgz#12418e09121c05c92041b6b3b9fb6bab213cb6f3"
-  integrity sha1-EkGOCRIcBckgQbazuftrqyE8tvM=
+katex@^0.12.0:
+  version "0.12.0"
+  resolved "https://registry.yarnpkg.com/katex/-/katex-0.12.0.tgz#2fb1c665dbd2b043edcf8a1f5c555f46beaa0cb9"
+  integrity sha512-y+8btoc/CK70XqcHqjxiGWBOeIL8upbS0peTPXTvgrh21n1RiWWcIpSWM+4uXq+IAgNh9YYQWdc7LVDPDAEEAg==
   dependencies:
-    match-at "^0.1.0"
+    commander "^2.19.0"
 
 kind-of@^6.0.0, kind-of@^6.0.2:
   version "6.0.3"
@@ -785,18 +797,6 @@ magic-string@^0.25.7:
   integrity sha512-RmF0AsMzgt25qzqqLc1+MbHmhdx0ojF2Fvs4XnOqz2ZOBXzzkEwc/dJQZCYHAn7v1jbVOjAZfK8msRn4BxO4VQ==
   dependencies:
     sourcemap-codec "^1.4.8"
-
-markdown-it-katex@^2.0.3:
-  version "2.0.3"
-  resolved "https://registry.yarnpkg.com/markdown-it-katex/-/markdown-it-katex-2.0.3.tgz#d7b86a1aea0b9d6496fab4e7919a18fdef589c39"
-  integrity sha1-17hqGuoLnWSW+rTnkZoY/e9YnDk=
-  dependencies:
-    katex "^0.6.0"
-
-match-at@^0.1.0:
-  version "0.1.1"
-  resolved "https://registry.yarnpkg.com/match-at/-/match-at-0.1.1.tgz#25d040d291777704d5e6556bbb79230ec2de0540"
-  integrity sha512-h4Yd392z9mST+dzc+yjuybOGFNOZjmXIPKWjxBd1Bb23r4SmDOsk2NYCU2BMUBGbSpZqwVsZYNq26QS3xfaT3Q==
 
 merge2@^1.3.0, merge2@^1.4.1:
   version "1.4.1"
@@ -968,9 +968,9 @@ reusify@^1.0.4:
   integrity sha512-U9nH88a3fc/ekCF1l0/UP1IosiuIjyTh7hBvXVMHYgVcfGvt897Xguj2UOLDeI5BG2m7/uwyaLVT6fbtCwTyzw==
 
 rollup@^2.59.0:
-  version "2.72.1"
-  resolved "https://registry.yarnpkg.com/rollup/-/rollup-2.72.1.tgz#861c94790537b10008f0ca0fbc60e631aabdd045"
-  integrity sha512-NTc5UGy/NWFGpSqF1lFY8z9Adri6uhyMLI6LvPAXdBKoPRFhIIiBUpt+Qg2awixqO3xvzSijjhnb4+QEZwJmxA==
+  version "2.73.0"
+  resolved "https://registry.yarnpkg.com/rollup/-/rollup-2.73.0.tgz#128fef4b333fd92d02d6929afbb6ee38d7feb32d"
+  integrity sha512-h/UngC3S4Zt28mB3g0+2YCMegT5yoftnQplwzPqGZcKvlld5e+kT/QRmJiL+qxGyZKOYpgirWGdLyEO1b0dpLQ==
   optionalDependencies:
     fsevents "~2.3.2"
 

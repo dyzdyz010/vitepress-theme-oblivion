@@ -25,12 +25,12 @@ const author = useData().page.value.frontmatter.author
 const tags = useData().page.value.frontmatter.tags
 const date = useData().page.value.frontmatter.date
 
-let katexScript = document.createElement('script')
-katexScript.setAttribute('src', 'https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js')
-let katexAutoLoad = document.createElement('script')
-katexAutoLoad.setAttribute('src', 'https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/contrib/auto-render.min.js')
-katexAutoLoad.setAttribute('onload', 'renderMathInElement(document.body);')
-document.head.appendChild(katexScript)
-document.head.appendChild(katexAutoLoad)
+// let katexScript = document.createElement('script')
+// katexScript.setAttribute('src', 'https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js')
+// let katexAutoLoad = document.createElement('script')
+// katexAutoLoad.setAttribute('src', 'https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/contrib/auto-render.min.js')
+// katexAutoLoad.setAttribute('onload', 'renderMathInElement(document.body, {strict: false});')
+// document.head.appendChild(katexScript)
+// document.head.appendChild(katexAutoLoad)
 
 </script>

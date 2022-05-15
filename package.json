@@ -29,6 +29,6 @@
     "serve": "vitepress serve"
   },
   "dependencies": {
-    "markdown-it-katex": "^2.0.3"
+    "@iktakahiro/markdown-it-katex": "^4.0.1"
   }
 }
