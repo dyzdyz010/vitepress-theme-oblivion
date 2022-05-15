@@ -86,7 +86,7 @@ async function config() {
     markdown: {
       lineNumbers: false,
       config: (md) => {
-        md.use(require('@iktakahiro/markdown-it-katex'));
+        md.use(require('./theme/helpers/markdown-it-katex.ts'));
       },
     },
   }
