@@ -1,6 +1,7 @@
 @import url('./vars.scss');
 @import url('./code.scss');
 @import url('./custom-block.scss');
+@import url('./katex.scss');
 
 
 .post {
@@ -15,8 +16,8 @@
     h4,
     h5,
     h6 {
-      @apply m-0;
-      @apply leading-5;
+        @apply m-0;
+        @apply leading-5;
     }
 
     h1,
@@ -27,7 +28,7 @@
     h6,
     strong,
     b {
-      @apply font-semibold;
+        @apply font-semibold;
     }
 
     h1:hover .header-anchor,
@@ -58,7 +59,7 @@
         @apply text-[1.65rem];
     }
 
-    h2 + h3 {
+    h2+h3 {
         @apply mt-6;
     }
 
@@ -117,28 +118,28 @@
     ol {
         @apply pl-5;
     }
-    
-    li > ul,
-    li > ol {
+
+    li>ul,
+    li>ol {
         @apply m-0;
     }
 
     table {
         @apply block border-collapse my-4 mx-0 overflow-auto;
-    }
 
-    tr {
-        @apply border border-x-0 border-b-0 border-[#dfe2e5];
+        tr {
+            @apply border border-x-0 border-b-0 border-[#dfe2e5];
 
-        &:nth-child(2n) {
-            @apply bg-[#f6f8fa];
+            &:nth-child(2n) {
+                @apply bg-[#f6f8fa];
+            }
         }
-    }
 
-    th,
-    td {
-        @apply border border-[#dfe2e5];
-        @apply py-[0.6em] px-4;
+        th,
+        td {
+            @apply border border-[#dfe2e5];
+            @apply py-[0.6em] px-4;
+        }
     }
 
     blockquote {
@@ -148,7 +149,7 @@
         @apply text-[1rem];
         @apply text-[#999];
 
-        & > p {
+        &>p {
             @apply m-0;
         }
     }

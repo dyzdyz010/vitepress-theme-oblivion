@@ -30,3 +30,7 @@ const author = useData().page.value.frontmatter.author
 const tags = useData().page.value.frontmatter.tags
 const date = useData().page.value.frontmatter.date
 </script>
+
+<style scoped>
+@import url('https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.5.1/katex.min.css');
+</style>

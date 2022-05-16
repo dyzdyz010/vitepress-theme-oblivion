@@ -1,0 +1,11 @@
+.katex {
+    @apply my-10 !important;
+
+   span {
+        @apply before:border-gray-700 after:border-gray-700 !important;
+    }
+
+    .vlist {
+        @apply align-baseline !important;
+    }
+}
