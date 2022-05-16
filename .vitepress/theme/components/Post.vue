@@ -13,13 +13,18 @@
         enter-from-class="transform opacity-0 scale-95" enter-to-class="opacity-100 scale-100">
         <TOC v-if="hasTOC" :toc="toc" />
     </transition>
+
+    <DynamicIcon :iconname="'arrow-circle-up'" class="hidden sm:block fixed sm:right-8 sm:bottom-8 w-10 h-10 text-gray-600 hover:text-sky-800 cursor-pointer" @click="backToTop" />
 </template>
 
 <script setup lang="ts">
 import { computed } from "vue"
 import { useData } from "vitepress"
+
 import PostTitle from "./PostTitle.vue"
+import DynamicIcon from '../components/DynamicIcon.vue'
 import TOC from "./TOC.vue"
+
 import { getTOC } from '../helpers/toc.ts'
 
 const toc = getTOC()
@@ -29,6 +34,12 @@ const title = useData().page.value.frontmatter.title
 const author = useData().page.value.frontmatter.author
 const tags = useData().page.value.frontmatter.tags
 const date = useData().page.value.frontmatter.date
+
+const backToTop = function () {
+    setTimeout(() => {
+        window.scrollTo(0, 0)
+    }, 100)
+}
 </script>
 
 <style scoped>
