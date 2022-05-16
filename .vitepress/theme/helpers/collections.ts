@@ -17,5 +17,5 @@ export function setStorageCollection(collection) {
 
 export function getPostsByCollection(collection) {
     const posts = useData().theme.value.posts
-    return (collection == '') ? posts : posts.filter((p) => p.frontMatter.collections.indexOf(collection) > -1)
+    return (collection == '') ? posts : posts.filter((p) => p.frontMatter.collection && p.frontMatter.collection == collection)
 }

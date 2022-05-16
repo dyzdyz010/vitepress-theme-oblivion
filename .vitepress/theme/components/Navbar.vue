@@ -14,8 +14,7 @@
         </div>
         <div class="flex-1 flex sm:items-stretch justify-center sm:justify-start">
           <div class="flex-shrink-0 flex mr-10 items-center">
-            <a :href="localePath"
-              class="">
+            <a :href="localePath" class="">
               <img v-if="theme.logo" class="justify-center lg:inline h-8 w-auto" :src="withBase(theme.logo)"
                 alt="Logo" />
             </a>
@@ -50,11 +49,11 @@
                     leave-from-class="transform opacity-100 scale-100" leave-to-class="transform opacity-0 scale-95">
                     <MenuItems
                       class="origin-top-left absolute left-0 mt-2 w-48 rounded-md shadow-lg py-1 bg-white ring-1 ring-black ring-opacity-5 focus:outline-none">
-                      <MenuItem v-slot="{ active }" v-for="s in item.sub" :key="s">
-                      <a href="#"
-                        :class="[active ? 'bg-gray-100 text-gray-700' : '', 'block px-4 py-2 text-sm font-bold text-gray-500']">{{
-                            s
-                        }}</a>
+                      <MenuItem v-slot="{ active }" v-for="s in item.sub" :key="s" @click="selectCollection(s)" class="cursor-pointer">
+                      <a
+                        :class="[active ? 'bg-gray-100 text-gray-700' : 'text-gray-500', 'block px-4 py-2 text-sm font-bold']">
+                        {{ s }}
+                      </a>
                       </MenuItem>
                     </MenuItems>
                   </transition>
@@ -102,9 +101,8 @@ const navigation = theme.value.nav
 
 const postLength = useData().theme.value.postLength
 const collections = [{ name: '', count: postLength }].concat(useData().theme.value.collectionss)
-const selectCollection = function (collections) {
-    emit('currentCollectionChanged', collections)
-    router.go('/collectionss#' + collections)
+const selectCollection = function (collection) {
+  router.go('/collections#' + collection)
 }
 
 const active = computed((link) => isActive(route, withBase(link)))

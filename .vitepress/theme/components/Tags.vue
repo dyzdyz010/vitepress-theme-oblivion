@@ -23,7 +23,6 @@ const currentPage = ref(getStoragePage())
 const allPosts = useData().theme.value.posts
 const currentTag = ref(getStorageTag())
 const postsByTag = computed(() => getPostsByTag(currentTag.value))
-console.log(postsByTag);
 
 
 watchEffect(() => {

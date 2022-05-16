@@ -1,7 +1,7 @@
 <template>
     <div class="collections-list">
         <span v-for="t in collections"
-            :class="[currentCollection == t.name ? 'font-medium text-sky-700' : '', 'text-gray-500 mr-8 cursor-pointer hover:text-sky-700 font-medium inline-block whitespace-nowrap']"
+            :class="[currentCollection == t.name ? 'font-medium text-sky-700' : 'text-gray-500', 'mr-8 cursor-pointer hover:text-sky-700 font-medium inline-block whitespace-nowrap']"
             @click="selectCollection(t.name)">
             {{ t.name == '' ? 'All' : t.name }}
             <sup class="ml-0.5">{{ t.count }}</sup>
@@ -22,9 +22,10 @@ const emit = defineEmits(['currentCollectionChanged'])
 
 const postLength = useData().theme.value.postLength
 const collections = [{ name: '', count: postLength }].concat(useData().theme.value.collections)
-const selectCollection = function (collections) {
-    emit('currentCollectionChanged', collections)
-    router.go('/collections#' + collections)
+const selectCollection = function (collection) {
+
+    emit('currentCollectionChanged', collection)
+    router.go('/collections#' + collection)
 }
 
 </script>

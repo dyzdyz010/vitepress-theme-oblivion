@@ -14,8 +14,8 @@
 <script setup lang="ts">
 import { useData } from "vitepress"
 import { ref, computed, watchEffect } from "vue"
-import Posts from '../components/Posts.vue'
-import CollectionList from '../components/CollectionList.vue'
+import Posts from './Posts.vue'
+import CollectionList from './CollectionList.vue'
 import { getStorageCollection, setStorageCollection, getPostsByCollection } from "../helpers/collections.ts"
 import { getStoragePage } from "../helpers/pagination.ts"
 
@@ -26,12 +26,13 @@ const postsByCollection = computed(() => getPostsByCollection(currentCollection.
 
 watchEffect(() => {
     if (window.location.hash) {
-        currentCollection.value = window.location.hash.replace('#', '');
+        currentCollection.value = decodeURI(window.location.hash.replace('#', ''))
     }
 })
 
 const currentCollectionChanged = (newCollection) => {
     currentCollection.value = newCollection
+    getPostsByCollection(currentCollection.value)
     setStorageCollection(newCollection)
     currentPage.value = 1
 }
