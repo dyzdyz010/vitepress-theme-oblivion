@@ -1,5 +1,5 @@
 <template>
-    <div class="collections-list">
+    <div class="collection-list">
         <span v-for="t in collections"
             :class="[currentCollection == t.name ? 'font-medium text-sky-700' : 'text-gray-500', 'mr-8 cursor-pointer hover:text-sky-700 font-medium inline-block whitespace-nowrap']"
             @click="selectCollection(t.name)">

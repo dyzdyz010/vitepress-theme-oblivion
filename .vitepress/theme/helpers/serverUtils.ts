@@ -68,6 +68,8 @@ export async function getCollections(): Array<Collection> {
     }
   }
 
+  collections.sort(_comparePostCount)
+
   return collections
 }
 
@@ -93,8 +95,14 @@ export async function getTags(): Array<Tag> {
       })
     }
   })
+  
+  tags.sort(_comparePostCount)
 
   return tags
+}
+
+function _comparePostCount(obj1, obj2) {
+  return obj1.count < obj2.count ? 1 : -1;
 }
 
 interface Collection {

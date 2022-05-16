@@ -66,7 +66,7 @@ async function config() {
         },
         {
           text: "Collections",
-          link: "/collection",
+          link: "/collections",
           icon: "collection",
           sub: (await getCollections()).map(item => item.name),
         },

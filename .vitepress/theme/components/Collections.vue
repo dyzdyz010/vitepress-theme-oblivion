@@ -2,9 +2,13 @@
     <div class="xl:mx-64 lg:mx-32 mx-2">
         <transition appear enter-active-class="transition ease-out duration-300"
             enter-from-class="transform opacity-0 scale-95" enter-to-class="opacity-100 scale-100">
-            <CollectionList class="mt-10 mb-20" @currentCollectionChanged="currentCollectionChanged" :current-collection="currentCollection" />
+            <h1 class="text-center text-gray-700 text-4xl font-bold my-10">Collections</h1>
         </transition>
         <transition appear enter-active-class="transition ease-out duration-300 delay-100"
+            enter-from-class="transform opacity-0 scale-95" enter-to-class="opacity-100 scale-100">
+            <CollectionList class="mt-10 mb-20" @currentCollectionChanged="currentCollectionChanged" :current-collection="currentCollection" />
+        </transition>
+        <transition appear enter-active-class="transition ease-out duration-300 delay-150"
             enter-from-class="transform opacity-0 scale-95" enter-to-class="opacity-100 scale-100">
             <Posts :posts="postsByCollection" :current-page="currentPage" @currentPageChanged="currentPageChanged" />
         </transition>
@@ -32,7 +36,6 @@ watchEffect(() => {
 
 const currentCollectionChanged = (newCollection) => {
     currentCollection.value = newCollection
-    getPostsByCollection(currentCollection.value)
     setStorageCollection(newCollection)
     currentPage.value = 1
 }
