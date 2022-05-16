@@ -79,6 +79,7 @@
 import DynamicIcon from '../components/DynamicIcon.vue'
 import { Disclosure, DisclosureButton, DisclosurePanel, Menu, MenuButton, MenuItem, MenuItems } from '@headlessui/vue'
 import { BellIcon, MenuIcon, XIcon } from '@heroicons/vue/outline'
+import { TagIcon } from '@heroicons/vue/solid'
 
 // const navigation = [
 //   { name: 'Dashboard', href: '#', current: true },

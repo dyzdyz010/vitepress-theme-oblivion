@@ -7,7 +7,7 @@
                 <Posts :posts="posts" :current-page="currentPage" @currentPageChanged="currentPageChanged" />
             </transition>
         </div>
-        <div class="mt-9 md:mt-0 basis-full md:basis-1/3 px-2 md:px-6 border border-y-0 border-x-gray-200 border-dashed hover:border-x-gray-400">
+        <div class="mt-9 md:mt-0 basis-full md:basis-1/3 px-2 md:px-6">
             <Info />
         </div>
     </div>

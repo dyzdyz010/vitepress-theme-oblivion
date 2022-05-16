@@ -39,7 +39,6 @@ async function config() {
     themeConfig: {
       // repo: "clark-cui/homeSite",
       logo: "/blog_logo.png",
-      author: "dyzdyz010",
       docsDir: "/",
       // docsBranch: "master",
       lastUpdated: false,
@@ -58,7 +57,7 @@ async function config() {
         {
           text: "Home",
           link: "/",
-          icon: "house",
+          icon: "home",
         },
         {
           text: "Tags",
@@ -68,20 +67,16 @@ async function config() {
         {
           text: "Collections",
           link: "/collections",
-          icon: "rectangle-history",
+          icon: "collection",
           sub: (await getCollections()).map(item => item.name),
         },
         {
           text: "About",
           link: "/about",
-          icon: "circle-question",
+          icon: "question-mark-circle",
         },
       ],
-      socials: [
-        {
-          icon: "github"
-        }
-      ],
+
       // sidebar: {
       //   "./posts/": false,
       //   "/": false,
