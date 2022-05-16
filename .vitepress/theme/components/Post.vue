@@ -1,7 +1,7 @@
 <template>
     <transition appear enter-active-class="transition ease-in-out duration-300"
         enter-from-class="transform opacity-0 -translate-y-3" enter-to-class="opacity-100">
-        <div class="md:ml-[68] lg:ml-80 lg:mr-10 md:mt-20 mx-2">
+        <div :class="[hasTOC ? 'md:ml-[68] lg:ml-80 lg:mr-10' : 'md:mx-32', 'md:mt-20 mx-2']">
             <PostTitle :title="title" :date="date" :author="author" :tags="tags" :islink="false" :titlelink="''" />
             <div class="post mt-16">
                 <Content />
@@ -11,26 +11,22 @@
 
     <transition appear enter-active-class="transition ease-out duration-300 delay-100"
         enter-from-class="transform opacity-0 scale-95" enter-to-class="opacity-100 scale-100">
-        <TOC />
+        <TOC v-if="hasTOC" :toc="toc" />
     </transition>
 </template>
 
 <script setup lang="ts">
+import { computed } from "vue"
+import { useData } from "vitepress"
 import PostTitle from "./PostTitle.vue"
 import TOC from "./TOC.vue"
-import { useData } from "vitepress"
+import { getTOC } from '../helpers/toc.ts'
+
+const toc = getTOC()
+const hasTOC = computed(() => toc.length != 0)
 
 const title = useData().page.value.frontmatter.title
 const author = useData().page.value.frontmatter.author
 const tags = useData().page.value.frontmatter.tags
 const date = useData().page.value.frontmatter.date
-
-// let katexScript = document.createElement('script')
-// katexScript.setAttribute('src', 'https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js')
-// let katexAutoLoad = document.createElement('script')
-// katexAutoLoad.setAttribute('src', 'https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/contrib/auto-render.min.js')
-// katexAutoLoad.setAttribute('onload', 'renderMathInElement(document.body, {strict: false});')
-// document.head.appendChild(katexScript)
-// document.head.appendChild(katexAutoLoad)
-
 </script>

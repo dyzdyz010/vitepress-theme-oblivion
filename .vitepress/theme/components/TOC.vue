@@ -24,12 +24,11 @@ import { useRoute, useData, withBase } from "vitepress"
 import { getTOC } from '../helpers/toc.ts'
 import { useActiveSidebarLinks } from '../helpers/activeTOCLink.ts'
 
-useActiveSidebarLinks()
+const props = defineProps({
+    toc: Array,
+})
 
-const data = useData()
-const toc = getTOC()
-let route = useRoute()
-let path = route.path
+useActiveSidebarLinks()
 </script>
 
 <style scoped>

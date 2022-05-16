@@ -51,6 +51,6 @@ const date = dateTemp.toLocaleDateString('en-US', dateOptions)
 
 const selectTag = function (tag) {
     setStorageTag(tag)
-    router.go('/tags')
+    router.go('/tags#' + tag)
 }
 </script>

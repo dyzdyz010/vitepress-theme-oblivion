@@ -10,7 +10,9 @@
 </template>
 
 <script setup lang="ts">
-import { useData } from "vitepress"
+import { useData, useRouter } from "vitepress"
+
+const router = useRouter()
 
 const props = defineProps({
     currentTag: String
@@ -22,6 +24,7 @@ const postLength = useData().theme.value.postLength
 const tags = [{ name: '', count: postLength }].concat(useData().theme.value.tags)
 const selectTag = function (tag) {
     emit('currentTagChanged', tag)
+    router.go('/tags#' + tag)
 }
 
 </script>
