@@ -1,12 +1,12 @@
 <template>
 <div class="pagination flex justify-center items-center mt-7">
-    <DynamicIcon v-if="currentPage > 1" :iconname="'chevron-double-left'" @click="prevPage" class="w-4 h-4 text-gray-600 hover:text-sky-700 cursor-pointer" />
+    <DynamicIcon v-if="currentPage > 1" :iconname="'chevrons-left'" @click="prevPage" class="w-4 h-4 text-gray-600 hover:text-sky-700 cursor-pointer" />
 
     <div class="jump-links mx-4">
         <span v-if="isAll" v-for="i in pageNum" :class="[i == currentPage ? 'text-sky-700' : 'text-gray-600', 'mx-2 text-lg hover:text-sky-700 cursor-pointer']" @click="jumpToPage(i)">{{i}}</span>
     </div>
 
-    <DynamicIcon v-if="currentPage < pageNum" :iconname="'chevron-double-right'" @click="nextPage" class="w-4 h-4 text-gray-600 hover:text-sky-800 cursor-pointer" />
+    <DynamicIcon v-if="currentPage < pageNum" :iconname="'chevrons-right'" @click="nextPage" class="w-4 h-4 text-gray-600 hover:text-sky-800 cursor-pointer" />
 </div>
 </template>
 
