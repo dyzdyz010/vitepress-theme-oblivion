@@ -2,7 +2,7 @@
 title: 第五篇文章
 date: 2022-10-08
 author: dyzdyz010
-collection: collection2
+collection: Demos
 draft: false
 tags:
   - javascript

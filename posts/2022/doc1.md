@@ -2,7 +2,7 @@
 title: 第一篇文章
 date: 2020-06-08
 author: dyzdyz010
-collection: tcollection
+collection: Demos
 tags:
   - javascript
   - markdown

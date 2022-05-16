@@ -89,15 +89,23 @@ import { TagIcon } from '@heroicons/vue/solid'
 //   { name: 'Calendar', href: '#', current: false },
 // ]
 import { computed } from 'vue'
-import { useRoute, useData, withBase } from "vitepress"
+import { useRouter, useRoute, useData, withBase } from "vitepress"
 import { isActive } from '../helpers/utils.ts'
 
 
 const route = useRoute()
+const router = useRouter()
 
 const { site, theme, localePath } = useData()
 
 const navigation = theme.value.nav
+
+const postLength = useData().theme.value.postLength
+const collections = [{ name: '', count: postLength }].concat(useData().theme.value.collectionss)
+const selectCollection = function (collections) {
+    emit('currentCollectionChanged', collections)
+    router.go('/collectionss#' + collections)
+}
 
 const active = computed((link) => isActive(route, withBase(link)))
 

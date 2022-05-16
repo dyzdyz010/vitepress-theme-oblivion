@@ -2,7 +2,7 @@
 title: 第八篇文章
 date: 2022-12-08
 author: dyzdyz010
-collection: collection2
+collection: 生产力
 draft: false
 tags:
   - showcase

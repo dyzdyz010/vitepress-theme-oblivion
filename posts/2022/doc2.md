@@ -2,7 +2,7 @@
 title: 第二篇文章
 date: 2022-07-08
 author: dyzdyz010
-collection: tcollection
+collection: Demos
 draft: false
 tags:
   - javascript

@@ -2,7 +2,7 @@
 title: 第七篇文章
 date: 2022-12-06
 author: dyzdyz010
-collection: collection2
+collection: Test Cases
 draft: false
 tags:
   - javascript

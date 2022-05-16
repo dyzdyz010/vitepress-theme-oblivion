@@ -5,8 +5,7 @@ tags:
   - notion
   - life
 author: dyzdyz010
-categories: 
- - productivity
+collection: 生产力
 ---
 
 
