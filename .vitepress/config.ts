@@ -40,10 +40,11 @@ async function config() {
       // repo: "clark-cui/homeSite",
       logo: "/blog_logo.png",
       docsDir: "/",
+      author: "dyzdyz010",
       // docsBranch: "master",
       lastUpdated: false,
       posts: await getPosts(), // 文章总数
-      pageSize: 3, //几个为一页
+      pageSize: 6, //几个为一页
       postLength: await getPostLength(), //博客有几篇
       collections: await getCollections(),
       tags: await getTags(),
@@ -76,11 +77,16 @@ async function config() {
           icon: "question-mark-circle",
         },
       ],
-
-      // sidebar: {
-      //   "./posts/": false,
-      //   "/": false,
-      // },
+      socials: [
+        {
+          name: 'Github',
+          link: 'https://github.com/dyzdyz010',
+        },
+        {
+          name: 'Facebook',
+          link: 'https://facebook.com',
+        },
+      ],
       sidebar: false,
     },
     markdown: {
@@ -91,4 +97,4 @@ async function config() {
     },
   }
 }
-export default config();
+export default config()
