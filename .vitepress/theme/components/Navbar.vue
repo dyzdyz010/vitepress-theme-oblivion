@@ -28,7 +28,7 @@
           <div class="hidden sm:block ml-auto">
             <div class="flex-1 flex space-x-1 justify-end">
               <div v-for="item in navigation" :key="item.text" class="px-3 py-2 inline-flex">
-                <a v-if="!item.sub" :href="[item.sub ? '#' : item.link]"
+                <a v-if="!item.sub" :href="item.link"
                   :class="[isActive(route, withBase(item.link)) ? 'text-sky-700' : 'text-gray-500 hover:text-sky-700', 'text-base font-bold']"
                   :aria-current="item.current ? 'page' : undefined">
                   <DynamicIcon :iconname="item.icon" :class="'inline-block w-5 h-5 mr-1'" />
@@ -78,15 +78,8 @@
 <script setup lang="ts">
 import DynamicIcon from '../components/DynamicIcon.vue'
 import { Disclosure, DisclosureButton, DisclosurePanel, Menu, MenuButton, MenuItem, MenuItems } from '@headlessui/vue'
-import { BellIcon, MenuIcon, XIcon } from '@heroicons/vue/outline'
-import { TagIcon } from '@heroicons/vue/solid'
+import { MenuIcon, XIcon } from '@heroicons/vue/outline'
 
-// const navigation = [
-//   { name: 'Dashboard', href: '#', current: true },
-//   { name: 'Team', href: '#', current: false },
-//   { name: 'Projects', href: '#', current: false },
-//   { name: 'Calendar', href: '#', current: false },
-// ]
 import { computed } from 'vue'
 import { useRouter, useRoute, useData, withBase } from "vitepress"
 import { isActive } from '../helpers/utils.ts'

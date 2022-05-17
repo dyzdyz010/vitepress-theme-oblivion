@@ -44,7 +44,3 @@ onMounted(() => {
     }
 })
 </script>
-
-<style scoped>
-@import url('https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.css');
-</style>

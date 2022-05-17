@@ -39,7 +39,12 @@ async function config() {
         },
 
       ],
-
+      [
+        'link',
+        {
+          rel: 'stylesheet', href: 'https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.css',
+        }
+      ],
     ],
     themeConfig: {
       // repo: "clark-cui/homeSite",
@@ -97,7 +102,7 @@ async function config() {
     markdown: {
       lineNumbers: false,
       config: (md) => {
-        md.use(require('./theme/helpers/markdown-it-katex.ts'));
+        md.use(require('./theme/helpers/markdown-it-katex.ts'), {strict: false});
       },
     },
     vue: {
