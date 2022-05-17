@@ -90,13 +90,13 @@ async function config() {
         md.use(require('./theme/helpers/markdown-it-katex.ts'));
       },
     },
-    // vue: {
-    //   template: {
-    //     compilerOptions: {
-    //         // isCustomElement: tag => true
-    //     }
-    //   }
-    // },
+    vue: {
+      template: {
+        compilerOptions: {
+            isCustomElement: tag => true
+        }
+      }
+    },
   }
 }
 export default config()
