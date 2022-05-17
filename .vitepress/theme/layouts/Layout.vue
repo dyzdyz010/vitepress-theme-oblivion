@@ -1,7 +1,7 @@
 <template>
     <div class="flex flex-col h-screen">
         <Navbar />
-        <div class="flex flex-col lg:container lg:mx-auto mt-10 mb-20">
+        <div v-if="show" class="flex flex-col lg:container lg:mx-auto mt-10 mb-20">
             <Home v-if="enableHome" />
             <Post v-else-if="isPost" />
             <Content v-else />
@@ -16,7 +16,7 @@ import Post from '../components/Post.vue'
 import Home from '../components/Home.vue'
 import Footer from '../components/Footer.vue'
 
-import { computed } from 'vue'
+import { computed, ref, onMounted } from 'vue'
 import { useData } from 'vitepress'
 
 const title = useData().page.value.title
@@ -28,4 +28,10 @@ const isCustomLayout = computed(() => !!frontmatter.value.customLayout)
 // home
 const enableHome = computed(() => !!frontmatter.value.home)
 const isPost = computed(() => (useData().page.value.relativePath.indexOf("posts") > -1 ? true : false) || frontmatter.value.isPost)
+
+const show = ref(false)
+
+onMounted(() => {
+  show.value = true  
+})
 </script>
