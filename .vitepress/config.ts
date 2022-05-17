@@ -112,6 +112,7 @@ async function config() {
         }
       }
     },
+    srcExclude: ['README.md'],
   }
 }
 export default config()
