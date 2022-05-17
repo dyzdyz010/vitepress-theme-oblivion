@@ -106,6 +106,4 @@ const selectCollection = function (collection) {
 }
 
 const active = computed((link) => isActive(route, withBase(link)))
-
-// console.log(navigation)
 </script>

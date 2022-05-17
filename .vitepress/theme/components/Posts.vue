@@ -13,9 +13,9 @@
 import PostTitle from "./PostTitle.vue"
 import Pagination from "./Pagination.vue"
 
-import { getStoragePage, setStoragePage, getPostsOnPage } from "../helpers/pagination.ts"
+import { setStoragePage, getPostsOnPage } from "../helpers/pagination.ts"
 
-import { ref, computed } from "vue"
+import { ref, computed, onMounted } from "vue"
 import { useData, withBase } from "vitepress"
 
 const props = defineProps({

@@ -18,7 +18,7 @@
 </template>
 
 <script setup lang="ts">
-import { computed } from "vue"
+import { ref, computed, onMounted } from "vue"
 import { useData } from "vitepress"
 
 import PostTitle from "./PostTitle.vue"
@@ -34,14 +34,17 @@ const title = useData().page.value.frontmatter.title
 const author = useData().page.value.frontmatter.author
 const tags = useData().page.value.frontmatter.tags
 const date = useData().page.value.frontmatter.date
+const backToTop = ref()
 
-const backToTop = function () {
-    setTimeout(() => {
-        window.scrollTo(0, 0)
-    }, 100)
-}
+onMounted(() => {
+    backToTop.value = function () {
+        setTimeout(() => {
+            window.scrollTo(0, 0)
+        }, 100)
+    }
+})
 </script>
 
 <style scoped>
-@import url('https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.5.1/katex.min.css');
+@import url('https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.css');
 </style>

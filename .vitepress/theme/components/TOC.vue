@@ -20,6 +20,7 @@
 </template>
 
 <script setup lang="ts">
+import { onMounted } from 'vue'
 import { useRoute, useData, withBase } from "vitepress"
 import { getTOC } from '../helpers/toc.ts'
 import { useActiveSidebarLinks } from '../helpers/activeTOCLink.ts'
@@ -28,7 +29,9 @@ const props = defineProps({
     toc: Array,
 })
 
-useActiveSidebarLinks()
+onMounted(() => {
+    useActiveSidebarLinks()
+})
 </script>
 
 <style scoped>

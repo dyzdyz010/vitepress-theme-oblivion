@@ -17,22 +17,28 @@
 
 <script setup lang="ts">
 import { useData } from "vitepress"
-import { ref, computed, watchEffect } from "vue"
+import { ref, computed, watchEffect, onMounted } from "vue"
 import Posts from './Posts.vue'
 import TagList from './TagList.vue'
 import { getStorageTag, setStorageTag, getPostsByTag } from "../helpers/tags.ts"
 import { getStoragePage } from "../helpers/pagination.ts"
 
-const currentPage = ref(getStoragePage())
+const currentPage = ref(1)
 const allPosts = useData().theme.value.posts
-const currentTag = ref(getStorageTag())
+const currentTag = ref('')
 const postsByTag = computed(() => getPostsByTag(currentTag.value))
+const watchFun = ref(() => { })
 
+onMounted(() => {
+    
+    currentPage.value = getStoragePage()
+    currentTag.value = getStorageTag()
 
-watchEffect(() => {
-    if (window.location.hash) {
-        currentTag.value = window.location.hash.replace('#', '');
-    }
+    watchEffect(() => {
+        if (window.location.hash) {
+            currentTag.value = window.location.hash.replace('#', '');
+        }
+    })
 })
 
 const currentTagChanged = (newTag) => {

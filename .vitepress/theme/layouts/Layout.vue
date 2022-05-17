@@ -27,6 +27,5 @@ const { site, page, theme, frontmatter } = useData()
 const isCustomLayout = computed(() => !!frontmatter.value.customLayout)
 // home
 const enableHome = computed(() => !!frontmatter.value.home)
-const isPost = computed(() => (useData().page.value.relativePath.indexOf("posts") > -1 ? true : false) || frontmatter.value.isPost
-)
+const isPost = computed(() => (useData().page.value.relativePath.indexOf("posts") > -1 ? true : false) || frontmatter.value.isPost)
 </script>

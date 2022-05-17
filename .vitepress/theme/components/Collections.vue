@@ -17,21 +17,26 @@
 
 <script setup lang="ts">
 import { useData } from "vitepress"
-import { ref, computed, watchEffect } from "vue"
+import { ref, computed, watchEffect, onMounted } from "vue"
 import Posts from './Posts.vue'
 import CollectionList from './CollectionList.vue'
 import { getStorageCollection, setStorageCollection, getPostsByCollection } from "../helpers/collections.ts"
 import { getStoragePage } from "../helpers/pagination.ts"
 
-const currentPage = ref(getStoragePage())
+const currentPage = ref(1)
 const allPosts = useData().theme.value.posts
-const currentCollection = ref(getStorageCollection())
+const currentCollection = ref('')
 const postsByCollection = computed(() => getPostsByCollection(currentCollection.value))
 
-watchEffect(() => {
-    if (window.location.hash) {
-        currentCollection.value = decodeURI(window.location.hash.replace('#', ''))
-    }
+onMounted(() => {
+    currentPage.value = getStoragePage()
+    currentCollection.value = getStorageCollection()
+    
+    watchEffect(() => {
+        if (window.location.hash) {
+            currentCollection.value = decodeURI(window.location.hash.replace('#', ''))
+        }
+    })
 })
 
 const currentCollectionChanged = (newCollection) => {

@@ -23,12 +23,16 @@ import Posts from '../components/Posts.vue'
 import Hero from '../components/Hero.vue'
 import Info from '../components/Info.vue'
 import { useData } from 'vitepress'
-import { ref } from 'vue'
+import { ref, onMounted } from 'vue'
 
 import { getStoragePage } from "../helpers/pagination.ts"
 
 const posts = useData().theme.value.posts
-var currentPage = ref(getStoragePage())
+const currentPage = ref(1)
+
+onMounted(() => {
+    currentPage.value = getStoragePage()
+})
 
 const currentPageChanged = (newPageNum) => {
     currentPage.value = newPageNum

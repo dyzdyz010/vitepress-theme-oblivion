@@ -23,9 +23,6 @@ const emit = defineEmits(['currentTagChanged'])
 const postLength = useData().theme.value.postLength
 const tags = [{ name: '', count: postLength }].concat(useData().theme.value.tags)
 const selectTag = function (tag) {
-    
-    console.log(tag);
-    
     emit('currentTagChanged', tag)
     router.go('/tags#' + tag)
 }

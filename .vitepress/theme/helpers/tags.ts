@@ -17,5 +17,6 @@ export function setStorageTag(tag) {
 
 export function getPostsByTag(tag) {
     const posts = useData().theme.value.posts
+    
     return (tag == '') ? posts : posts.filter((p) => p.frontMatter.tags.indexOf(tag) > -1)
 }

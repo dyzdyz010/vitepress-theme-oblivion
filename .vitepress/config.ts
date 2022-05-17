@@ -29,12 +29,7 @@ async function config() {
         },
 
       ],
-      [
-        'link',
-        {
-          rel: 'stylesheet', href: 'https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.css',
-        }
-      ],
+
     ],
     themeConfig: {
       // repo: "clark-cui/homeSite",
@@ -95,6 +90,13 @@ async function config() {
         md.use(require('./theme/helpers/markdown-it-katex.ts'));
       },
     },
+    // vue: {
+    //   template: {
+    //     compilerOptions: {
+    //         // isCustomElement: tag => true
+    //     }
+    //   }
+    // },
   }
 }
 export default config()
