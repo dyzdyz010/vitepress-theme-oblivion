@@ -11,11 +11,11 @@ collection: Productivity
 
 昨天看了 [Bulletproof Task Management in Notion](https://www.notion.vip/bulletproof-task-management-in-notion/)，其中 *Tasks* 数据库中有一个字段叫做 `Priority`，用于根据 `Urgency`, `Impact`, `Workload`, `Enjoyment` 四个字段来计算一项任务的优先级：
 
-![Projects Database Task Prioritizer](../../assets/img/2020/12/projects_database__task_prioritizer.png)
+![Projects Database Task Prioritizer](/assets/img/2020/12/projects_database__task_prioritizer.png)
 
 根据视频及[原文](https://www.notion.vip/bulletproof-tasks/#the-prioritizer)中提到的[The Eisenhower Matrix](https://todoist.com/productivity-methods/eisenhower-matrix)可以知道，作者将 Matrix 中的两个维度共四种情况分为 4 个优先级：1, 2, 3, 4，数字越小优先级越高：
 
-![Eisenhower Matrix](../../assets/img/2020/12/productivity-methods_eisenhower-matrix.png)
+![Eisenhower Matrix](/assets/img/2020/12/productivity-methods_eisenhower-matrix.png)
 
 根据Task Database中的设置，优先级共分为四个维度：
   - Urgency
@@ -27,7 +27,7 @@ collection: Productivity
 
 原文及视频中没有给出具体的计算方式，但根据视频中已有的 5 条记录，我们可以利用解方程的方式计算出每个维度的权重：
 
-![Prioritizer](../../assets/img/2020/12/bulletproof-task-management-priority-formula.png)
+![Prioritizer](/assets/img/2020/12/bulletproof-task-management-priority-formula.png)
 
 假设 `High`的优先级为 1，`Medium`的优先级为 2，`Low`的优先级为 3，设四个维度的权重分别为\\(a, b, c, d\\)。我们可以看到图中有几个特殊的`Priority`值：**1.67**、**1.83**、**2.67**，显然这是分数没有除尽而造成的截取误差。我们可以得到：
 
