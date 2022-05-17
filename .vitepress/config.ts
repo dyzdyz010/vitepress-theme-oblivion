@@ -1,6 +1,16 @@
 import { defineConfig } from "vitepress"
 import { getPosts, getPostLength, getCollections, getTags } from "./theme/helpers/serverUtils.ts";
 
+const mathTags = [
+  "math", "annotation", "semantics",
+  "mtext", "mn", "mo", "mi", "mspace",
+  "mover", "munder", "munderover", "msup", "msub", "msubsup",
+  "mfrac", "mroot", "msqrt",
+  "mtable", "mtr", "mtd", "mlabeledtr",
+  "mrow", "menclose",
+  "mstyle", "mpadded", "mphantom", "mglyph"
+]
+
 async function config() {
   return {
     lang: "en-US",
@@ -93,7 +103,7 @@ async function config() {
     vue: {
       template: {
         compilerOptions: {
-            isCustomElement: tag => true
+            isCustomElement: tag => mathTags.includes(tag)
         }
       }
     },
