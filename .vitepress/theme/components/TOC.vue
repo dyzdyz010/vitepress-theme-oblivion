@@ -29,9 +29,7 @@ const props = defineProps({
     toc: Array,
 })
 
-onMounted(() => {
-    useActiveSidebarLinks()
-})
+useActiveSidebarLinks()
 </script>
 
 <style scoped>
