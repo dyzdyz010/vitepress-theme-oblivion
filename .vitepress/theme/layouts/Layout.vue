@@ -1,7 +1,7 @@
 <template>
     <div class="flex flex-col h-screen">
-        <Navbar />
-        <div v-if="show" class="flex flex-col lg:container lg:mx-auto mt-10 mb-20">
+        <Navbar class="z-[100]" />
+        <div class="flex flex-col lg:container lg:mx-auto mt-10 mb-20">
             <Home v-if="enableHome" />
             <Post v-else-if="isPost" />
             <Content v-else />
@@ -28,10 +28,4 @@ const isCustomLayout = computed(() => !!frontmatter.value.customLayout)
 // home
 const enableHome = computed(() => !!frontmatter.value.home)
 const isPost = computed(() => (useData().page.value.relativePath.indexOf("posts") > -1 ? true : false) || frontmatter.value.isPost)
-
-const show = ref(false)
-
-onMounted(() => {
-  show.value = true  
-})
 </script>

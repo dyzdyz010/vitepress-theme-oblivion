@@ -4,13 +4,13 @@
         <div class="basis-full md:basis-3/4 px-2 md:px-6">
             <transition appear enter-active-class="transition ease-out duration-300 delay-150"
                 enter-from-class="transform opacity-0 scale-95" enter-to-class="opacity-100 scale-100">
-                <Posts :posts="posts" :current-page="currentPage" @currentPageChanged="currentPageChanged" />
+                <Posts v-if="show" :posts="posts" :current-page="currentPage" @currentPageChanged="currentPageChanged" />
             </transition>
         </div>
 
         <transition appear enter-active-class="transition ease-out duration-300 delay-200"
             enter-from-class="transform opacity-0 scale-95" enter-to-class="opacity-100 scale-100">
-            <div
+            <div v-if="show"
                 class="mt-9 md:mt-0 basis-full md:basis-1/4 px-2 md:px-6 border border-y-0 border-x-gray-200 border-dashed hover:border-x-gray-400">
                 <Info />
             </div>
@@ -30,8 +30,11 @@ import { getStoragePage } from "../helpers/pagination.ts"
 const posts = useData().theme.value.posts
 const currentPage = ref(1)
 
+const show = ref(false)
+
 onMounted(() => {
     currentPage.value = getStoragePage()
+    show.value = true
 })
 
 const currentPageChanged = (newPageNum) => {

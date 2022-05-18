@@ -2,7 +2,7 @@
 title: Katex 测试
 date: 2022-12-09
 author: dyzdyz010
-collection: Productivity
+collection: Year Review
 draft: false
 tags:
   - showcase
