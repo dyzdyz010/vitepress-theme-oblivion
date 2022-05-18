@@ -7,7 +7,7 @@
         <span class="mx-3">|</span>
 
         <span>Copyright © </span>
-        <a href="https://github.com/clark-cui/" target="_blank" title="作者" class="text-sky-600 hover:text-sky-700">dyzdyz010</a>
+        <a href="https://github.com/dyzdyz010" target="_blank" title="作者" class="text-sky-600 hover:text-sky-700">dyzdyz010</a>
         <span class="mx-3">|</span>
         
         <span>2022 - {{ year }}</span>
