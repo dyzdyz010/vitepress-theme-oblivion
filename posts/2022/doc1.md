@@ -4,9 +4,9 @@ date: 2020-06-08
 author: dyzdyz010
 collection: Demos
 tags:
-  - javascript
-  - markdown
-  - news
+    - javascript
+    - markdown
+    - news
 ---
 
 # Markdown Extensions
