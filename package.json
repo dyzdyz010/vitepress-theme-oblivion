@@ -31,6 +31,7 @@
     "newpost": "node commands.ts newpost"
   },
   "dependencies": {
-    "katex": "^0.15.3"
+    "katex": "^0.15.3",
+    "valine": "^1.4.18"
   }
 }
