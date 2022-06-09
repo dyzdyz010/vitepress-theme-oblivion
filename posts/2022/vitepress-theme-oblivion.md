@@ -31,7 +31,7 @@ draft: false
 
 不得不说，Katex的加入给我带来了不小的麻烦，自定义标签会在 build 的时候报错：
 
-![](/posts/assets/img/2022/20220518katex-vitepress-build-error.png)
+<!-- ![](/posts/assets/img/2022/20220518katex-vitepress-build-error.png) -->
 
 找了好多的资料都没找到点上，最后还是在 Vitepress 自己的配置文件中增加了一项才解决问题。在 `.vitepress/config.ts` 中加入以下内容：
 

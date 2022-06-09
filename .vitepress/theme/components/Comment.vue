@@ -3,11 +3,11 @@
 </template>
 
 <script setup lang="ts">
-import Valine from 'valine'
+
 import { onMounted } from "vue"
 
-
-onMounted(() => {
+onMounted(async () => {
+    const Valine = await(await import('valine')).default
     new Valine({
         el: '#vcomment',
         appId: 'RJNIQXLCKl82bptaBsSXfGBJ-gzGzoHsz',
@@ -32,7 +32,7 @@ onMounted(() => {
     }
 
     .vheader .vinput {
-        @apply hover:border-b-sky-700;
+        @apply hover:border-b-sky-700 focus:border-b-sky-500;
     }
 
     .vedit {

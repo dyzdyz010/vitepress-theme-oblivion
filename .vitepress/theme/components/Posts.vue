@@ -13,7 +13,7 @@
 import PostTitle from "./PostTitle.vue"
 import Pagination from "./Pagination.vue"
 
-import { setStoragePage, getPostsOnPage } from "../helpers/pagination.ts"
+import { setStoragePage, getPostsOnPage } from "../helpers/pagination"
 
 import { ref, computed, onMounted } from "vue"
 import { useData, withBase } from "vitepress"
