@@ -54,8 +54,8 @@ export async function getCollections(): Array<Collection> {
   let collections: Array<Collection> = []
 
   for (const p of posts) {
-    cnames = collections.map(item => item.name)
-    index = cnames.indexOf(p.frontMatter.collection)
+    let cnames = collections.map(item => item.name)
+    let index = cnames.indexOf(p.frontMatter.collection)
     if (index > -1) {
       let c = collections.at(index)
       c.count += 1
@@ -79,10 +79,10 @@ export async function getTags(): Array<Tag> {
 
   posts.map((p) => {
     if (p.frontMatter.tags != null) {
-      tnames = tags.map(item => item.name)
-      ptags = p.frontMatter.tags
+      let tnames = tags.map(item => item.name)
+      let ptags = p.frontMatter.tags
       ptags.map((pt) => {
-        index = tnames.indexOf(pt)
+        let index = tnames.indexOf(pt)
         if (index > -1) {
           tags.at(index).count += 1
         } else {

@@ -14,6 +14,7 @@
     "fs-extra": "^10.1.0",
     "globby": "^11.1.0",
     "gray-matter": "^4.0.3",
+    "mermaid": "^9.1.7",
     "postcss": "^8.4.13",
     "postcss-import": "^14.1.0",
     "prompt-sync": "^4.2.0",
